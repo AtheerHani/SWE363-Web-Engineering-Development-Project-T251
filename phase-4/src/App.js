@@ -1,11 +1,10 @@
 
 import './App.css';
-import signup from './signup/Signup.jsx';
 
 function App() {
   return (
     <div className="App">
-S      <Signup />
+      <h1>Welcome to Phase 4</h1>
     </div>
   );
 }
