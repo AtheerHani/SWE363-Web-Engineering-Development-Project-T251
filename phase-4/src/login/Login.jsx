@@ -1,27 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./signup.css";
+import "./login.css";
 
-const Signup = () => {
-  const [country, setCountry] = useState("SA (+966)");
+const Login = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!phone || !password || !confirmPassword) {
+    if (!phone || !password) {
       setError("Please fill in all fields.");
       return;
     }
-    if (password !== confirmPassword) {
-      setError("Passwords do not match.");
-      return;
-    }
-
-    alert("Signup successful ✅");
+    alert("Login successful ✅");
   };
 
   return (
@@ -30,19 +22,6 @@ const Signup = () => {
         <h2>Login or Signup</h2>
 
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Country</label>
-            <select
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-            >
-              <option>SA (+966)</option>
-              <option>US (+1)</option>
-              <option>UK (+44)</option>
-              <option>IN (+91)</option>
-            </select>
-          </div>
-
           <div className="form-group">
             <label>Phone Number</label>
             <input
@@ -54,22 +33,12 @@ const Signup = () => {
           </div>
 
           <div className="form-group">
-            <label>Create Your Password</label>
+            <label>Password</label>
             <input
               type="password"
-              placeholder="Create Your Password"
+              placeholder="Enter Your Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Confirm Your Password</label>
-            <input
-              type="password"
-              placeholder="Confirm Your Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
 
@@ -83,11 +52,11 @@ const Signup = () => {
         <div className="divider">Or Continue With</div>
 
         <p className="signup-text">
-          Already have an account? <Link to="/">Login</Link>
+          Don’t have an account? <Link to="/signup">Signup</Link>
         </p>
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default Login;

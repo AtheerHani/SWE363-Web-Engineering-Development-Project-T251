@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: px;
   margin-bottom: 20px;
 }
 
@@ -20,16 +21,17 @@
 
 .footer-section h4 {
   font-size: 14px;
-  color: #333;
-  margin-bottom: 10px;
+  color: #002b5b;
+  margin-bottom: 4px;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
 .footer-section a {
   display: block;
-  color: #555;
+  color: #002b5b;
   text-decoration: none;
-  margin: 5px 0;
+  margin: 3px 0;
 }
 
 .footer-section a:hover {
@@ -37,9 +39,9 @@
 }
 
 .footer-section p {
-  color: #555;
+  color: #002b5b;
   font-size: 14px;
-  margin: 4px 0;
+  margin: 2px 0;
 }
 
 .social-icons a {
