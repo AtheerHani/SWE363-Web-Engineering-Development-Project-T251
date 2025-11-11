@@ -20,6 +20,7 @@ const Login = () => {
     <div className="signup-container">
       <div className="signup-card">
         <h2>Login or Signup</h2>
+        <hr className="title-divider" />
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
