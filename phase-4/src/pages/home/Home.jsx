@@ -37,13 +37,14 @@ const Home = () => {
         },
     ];
 
-    const nearbyProperties = [
+    const topRatedProperties = [
         {
             id: 5,
             title: "Small room",
             image: "/assets/images/rooms/placeholder-room.jpg",
             pricePerDay: 1,
             pricePerHour: 0.50,
+            rating: 5,
         },
         {
             id: 6,
@@ -51,6 +52,7 @@ const Home = () => {
             image: "/assets/images/rooms/placeholder-room.jpg",
             pricePerDay: 1,
             pricePerHour: 0.50,
+            rating: 5,
         },
         {
             id: 7,
@@ -58,6 +60,7 @@ const Home = () => {
             image: "/assets/images/rooms/placeholder-room.jpg",
             pricePerDay: 1,
             pricePerHour: 0.50,
+            rating: 5,
         },
         {
             id: 8,
@@ -65,92 +68,7 @@ const Home = () => {
             image: "/assets/images/rooms/placeholder-room.jpg",
             pricePerDay: 1,
             pricePerHour: 0.50,
-        },
-    ];
-
-    const topRatedProperties = [
-        {
-            id: 9,
-            title: "Small room",
-            image: "/assets/images/rooms/placeholder-room.jpg",
-            pricePerDay: 1,
-            pricePerHour: 0.50,
             rating: 5,
-        },
-        {
-            id: 10,
-            title: "Small room",
-            image: "/assets/images/rooms/placeholder-room.jpg",
-            pricePerDay: 1,
-            pricePerHour: 0.50,
-            rating: 5,
-        },
-        {
-            id: 11,
-            title: "Small room",
-            image: "/assets/images/rooms/placeholder-room.jpg",
-            pricePerDay: 1,
-            pricePerHour: 0.50,
-            rating: 5,
-        },
-        {
-            id: 12,
-            title: "Small room",
-            image: "/assets/images/rooms/placeholder-room.jpg",
-            pricePerDay: 1,
-            pricePerHour: 0.50,
-            rating: 5,
-        },
-    ];
-
-    const featuredProperties = [
-        {
-            id: 13,
-            title: "Small Room",
-            image: "/assets/images/rooms/placeholder-room.jpg",
-            pricePerDay: 1,
-            pricePerHour: 0.50,
-            size: 50,
-        },
-        {
-            id: 14,
-            title: "Small Room",
-            image: "/assets/images/rooms/placeholder-room.jpg",
-            pricePerDay: 1,
-            pricePerHour: 0.50,
-            size: 50,
-        },
-        {
-            id: 15,
-            title: "Small Room",
-            image: "/assets/images/rooms/placeholder-room.jpg",
-            pricePerDay: 1,
-            pricePerHour: 0.50,
-            size: 50,
-        },
-        {
-            id: 16,
-            title: "Small Room",
-            image: "/assets/images/rooms/placeholder-room.jpg",
-            pricePerDay: 1,
-            pricePerHour: 0.50,
-            size: 50,
-        },
-        {
-            id: 17,
-            title: "Small Room",
-            image: "/assets/images/rooms/placeholder-room.jpg",
-            pricePerDay: 1,
-            pricePerHour: 0.50,
-            size: 50,
-        },
-        {
-            id: 18,
-            title: "Small Room",
-            image: "/assets/images/rooms/placeholder-room.jpg",
-            pricePerDay: 1,
-            pricePerHour: 0.50,
-            size: 50,
         },
     ];
 
@@ -163,13 +81,6 @@ const Home = () => {
             <PropertyGrid
                 title="Latest on the Spaces Listing"
                 properties={latestProperties}
-            />
-
-            {/* Nearby Listed Properties */}
-            <PropertyGrid
-                title="Nearby Listed Properties"
-                properties={nearbyProperties}
-                showMapButton={true}
             />
 
             {/* Top Rated Properties */}
@@ -187,19 +98,12 @@ const Home = () => {
                 buttonLink="/signup"
             />
 
-            {/* Featured Spaces on our Listing */}
-            <PropertyGrid
-                title="Featured Spaces on our Listing"
-                properties={featuredProperties}
-                featured={true}
-            />
-
             {/* Browse For More Spaces */}
             <CTASection
                 title="Browse For More Spaces"
                 subtitle="Discover amazing properties in your area"
                 buttonText="Find a Space"
-                buttonLink="/spaces"
+                buttonLink="/home"
                 variant="dark"
             />
         </div>
