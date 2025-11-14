@@ -1,0 +1,50 @@
+/* Container styling */
+.send-announcement-container {
+    background-color: #ffffff; /* pure white background */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Form labels */
+.send-announcement-container label {
+    color: #444;
+    font-weight: 600;
+}
+
+/* Inputs and textarea */
+.send-announcement-container input,
+.send-announcement-container textarea,
+.send-announcement-container select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff; /* ensure inputs are white too */
+}
+
+.send-announcement-container input:focus,
+.send-announcement-container textarea:focus,
+.send-announcement-container select:focus {
+    border-color: #666;
+    box-shadow: none; /* remove blue glow */
+}
+
+/* Buttons */
+.send-announcement-container .btn {
+    background-color: #666; /* medium gray */
+    color: #fff;
+    border: none;
+}
+
+.send-announcement-container .btn:hover {
+    background-color: #444; /* darker gray on hover */
+    color: #fff;
+}
+
+.send-announcement-container .btn-secondary {
+    background-color: #999; /* lighter gray for cancel */
+    color: #fff;
+}
+
+.send-announcement-container .btn-secondary:hover {
+    background-color: #777;
+}
