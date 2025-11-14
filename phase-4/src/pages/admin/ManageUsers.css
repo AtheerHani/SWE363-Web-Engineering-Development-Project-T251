@@ -1,0 +1,25 @@
+.user-management-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.user-management-container .btn-danger {
+    background-color: #d9534f;
+    border: none;
+}
+
+.user-management-container .btn-success {
+    background-color: #5cb85c;
+    border: none;
+}
+
+.user-management-container .btn-secondary {
+    background-color: #999;
+    border: none;
+    margin-bottom: 30px;
+}
+
+.user-management-container .btn-secondary:hover {
+    background-color: #777;
+}

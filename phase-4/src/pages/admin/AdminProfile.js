@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./AdminProfile.css";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import SendAnnouncement from "./SendAnnouncement";
+import ReviewDisputes from "./ReviewDisputes";
+import ManageUsers from "./ManageUsers";
 
 function AdminProfile() {
     const [activeSection, setActiveSection] = useState(null);
@@ -55,9 +57,18 @@ function AdminProfile() {
     ) : (
         // Active section view only
         <Container className="mt-4">
+
+            {activeSection === "Review Disputes" && (
+                <ReviewDisputes onBack={() => setActiveSection(null)} />
+            )}
             {activeSection === "Send Announcements" && (
                 <SendAnnouncement onBack={() => setActiveSection(null)} />
             )}
+            {activeSection === "User Management" && (
+                <ManageUsers onBack={() => setActiveSection(null)} />
+            )}
+
+
             {/* Later you can add other sections here */}
         </Container>
     );

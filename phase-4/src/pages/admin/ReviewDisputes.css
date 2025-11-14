@@ -1,0 +1,36 @@
+.review-disputes-container {
+    background-color: #ffffff; /* pure white background */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* List items */
+.review-disputes-container .list-group-item {
+    cursor: pointer;
+    color: #444;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    transition: background-color 0.2s ease;
+}
+
+.review-disputes-container .list-group-item:hover {
+    background-color: #f2f2f2;
+}
+
+/* Card view for selected dispute */
+.review-disputes-container .card {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+/* Go Back button */
+.review-disputes-container .go-back-btn {
+    margin-bottom: 30px;
+    background-color: #999;
+    color: #fff;
+    border: none;
+}
+
+.review-disputes-container .go-back-btn:hover {
+    background-color: #777;
+}
