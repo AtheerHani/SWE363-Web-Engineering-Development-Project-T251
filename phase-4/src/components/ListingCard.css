@@ -1,0 +1,80 @@
+.listing-card {
+    width: 100%;
+    max-width: 250px;
+    margin: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.listing-image-wrapper {
+    position: relative;
+    height: 160px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.listing-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.listing-placeholder {
+    background-color: #333;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.listing-text,
+.listing-text-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.listing-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-top: 2px solid #ccc;
+}
+
+.action-btn {
+    flex: 1;
+    margin: 0 5px;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 2px solid #444;
+}
+
+.modify-btn {
+    background-color: #999;
+    color: #fff;
+}
+
+.modify-btn:hover {
+    background-color: #777;
+}
+
+.remove-btn {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+.remove-btn:hover {
+    background-color: #c9302c;
+}

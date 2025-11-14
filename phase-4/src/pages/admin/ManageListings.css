@@ -1,0 +1,10 @@
+.listing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.go-back-btn {
+    margin-bottom: 30px; /* spacing only */
+}
+

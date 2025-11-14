@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Container, Form, Table, Button } from "react-bootstrap";
+import ManageListings from "./ManageListings"; // Make sure this path matches your folder structure
 import "./ManageUsers.css";
 
 function UserManagement({ onBack }) {
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedUserId, setSelectedUserId] = useState(null);
 
-    // Sample user data — replace with real API data later
     const [users, setUsers] = useState([
         { id: 1, name: "Basel Alharbi", active: true },
         { id: 2, name: "Dena Hatem", active: true },
@@ -22,8 +23,7 @@ function UserManagement({ onBack }) {
     };
 
     const handleManageListings = (id) => {
-        alert(`Managing listings for user ID: ${id}`);
-        // You can replace this with navigation or modal logic
+        setSelectedUserId(id);
     };
 
     const filteredUsers = users
@@ -31,6 +31,15 @@ function UserManagement({ onBack }) {
             user.name.toLowerCase().includes(searchTerm.toLowerCase())
         )
         .sort((a, b) => a.name.localeCompare(b.name));
+
+    if (selectedUserId) {
+        return (
+            <ManageListings
+                userId={selectedUserId}
+                onBack={() => setSelectedUserId(null)}
+            />
+        );
+    }
 
     return (
         <Container className="user-management-container mt-4" style={{ maxWidth: "800px" }}>
