@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.payment-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 60px;
+    width: 100%;
+    min-height: calc(100vh - 200px);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.payment-form-section {
+    flex: 1;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.payment-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #002b5b;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.payment-option:last-of-type {
+    border-bottom: none;
+}
+
+.payment-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+    accent-color: #002b5b;
+}
+
+.payment-option label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    flex: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card-icons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.card-icons img {
+    height: 24px;
+    width: auto;
+}
+
+/* Payment Instructions Section */
+.payment-instructions {
+    padding: 20px 0 10px 35px;
+    animation: slideDown 0.3s ease;
+}
+
+.instruction-box {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.cash-instruction {
+    background-color: #e8f5e9;
+    border: 1px solid #4caf50;
+}
+
+.bank-instruction {
+    background-color: #e3f2fd;
+    border: 1px solid #2196f3;
+}
+
+.instruction-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: #002b5b;
+}
+
+.instruction-content {
+    flex: 1;
+}
+
+.instruction-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #002b5b;
+    margin: 0 0 8px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.instruction-text {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Card Details Section */
+.card-details {
+    padding: 20px 0 10px 35px;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group.full-width {
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #0077b6;
+    background-color: white;
+}
+
+.input-group input::placeholder {
+    color: #999;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+.input-group.half-width {
+    flex: 1;
+}
+
+/* Bank Transfer Details Section */
+.bank-details {
+    padding: 20px 0 10px 35px;
+    animation: slideDown 0.3s ease;
+}
+
+.bank-info-box {
+    background-color: #f8f9fa;
+    border: 2px solid #0077b6;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+
+.bank-info-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #002b5b;
+    margin: 0 0 15px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bank-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.bank-info-row:last-child {
+    border-bottom: none;
+}
+
+.bank-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.bank-value {
+    font-size: 14px;
+    color: #002b5b;
+    font-weight: 600;
+    text-align: right;
+}
+
+/* Upload Section */
+.upload-section {
+    margin-top: 25px;
+}
+
+.upload-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #002b5b;
+    margin: 0 0 10px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.upload-instructions {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+.file-upload-area {
+    margin-top: 15px;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border: 2px dashed #0077b6;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload-label:hover {
+    background-color: #e3f2fd;
+    border-color: #005a8a;
+}
+
+.upload-icon {
+    width: 48px;
+    height: 48px;
+    color: #0077b6;
+    margin-bottom: 15px;
+}
+
+.upload-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.upload-main-text {
+    font-size: 15px;
+    color: #002b5b;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.upload-sub-text {
+    font-size: 13px;
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.file-success {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 12px 16px;
+    background-color: #e8f5e9;
+    border: 1px solid #4caf50;
+    border-radius: 6px;
+    animation: slideDown 0.3s ease;
+}
+
+.success-icon {
+    width: 20px;
+    height: 20px;
+    color: #4caf50;
+    flex-shrink: 0;
+}
+
+.success-text {
+    font-size: 14px;
+    color: #2e7d32;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Pay Button */
+.pay-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 14px 0;
+    margin-top: 30px;
+    background-color: #1e3a5f;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pay-button:hover {
+    background-color: #2c4d75;
+}
+
+.pay-button:active {
+    transform: scale(0.98);
+}
+
+/* Booking Summary Section */
+.booking-summary-section {
+    flex: 0 0 400px;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .payment-container {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+
+    .booking-summary-section {
+        flex: 1;
+        width: 100%;
+    }
+
+    .payment-form-section {
+        padding: 30px 20px;
+    }
+
+    .bank-info-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .bank-value {
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+    }
+
+    .input-group.half-width {
+        width: 100%;
+    }
+
+    .card-details,
+    .bank-details,
+    .payment-instructions {
+        padding-left: 0;
+    }
+
+    .file-upload-label {
+        padding: 20px;
+    }
+
+    .upload-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .instruction-box {
+        flex-direction: column;
+    }
+}
