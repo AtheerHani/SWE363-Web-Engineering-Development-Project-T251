@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.image-gallery {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.main-image-container {
+    flex: 1;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 140px);
+    grid-template-rows: repeat(2, 190px);
+    gap: 15px;
+}
+
+.thumbnail-item {
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    background-color: #f0f0f0;
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.thumbnail-item:hover {
+    border-color: #0077b6;
+}
+
+.thumbnail-item.active {
+    border-color: #002b5b;
+}
+
+.more-photos {
+    position: relative;
+}
+
+.more-photos-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 43, 91, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+.more-photos:hover .more-photos-overlay {
+    background-color: rgba(0, 119, 182, 0.8);
+}
+
+.more-photos-text {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.more-photos-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image-gallery {
+        flex-direction: column;
+    }
+
+    .main-image-container {
+        height: 300px;
+    }
+
+    .thumbnail-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 100px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .thumbnail-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .more-photos-text {
+        font-size: 24px;
+    }
+
+    .more-photos-label {
+        font-size: 12px;
+    }
+}

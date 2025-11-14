@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.price-card {
+    background-color: #f5f5f7;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 20px;
+}
+
+.price-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.price-amount {
+    font-size: 32px;
+    font-weight: 700;
+    color: #002b5b;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.price-period {
+    font-size: 16px;
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.price-details {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.price-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.price-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #002b5b;
+}
+
+.reserve-button {
+    width: 100%;
+    padding: 14px 0;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 15px;
+}
+
+.reserve-button:hover {
+    background-color: #34495e;
+}
+
+.reserve-button:active {
+    transform: scale(0.98);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 15px;
+    background-color: white;
+    color: #002b5b;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.action-btn:hover {
+    border-color: #0077b6;
+    color: #0077b6;
+    background-color: #e3f2fd;
+}
+
+.action-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .price-card {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .price-card {
+        padding: 20px;
+    }
+
+    .price-amount {
+        font-size: 28px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+}

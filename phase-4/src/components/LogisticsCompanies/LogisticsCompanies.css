@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.logistics-section {
+    padding: 30px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logistics-description {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0 20px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logistics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.logistics-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.logistics-card:hover {
+    border-color: #809191;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logistics-card.expanded {
+    grid-column: span 2;
+    border-color: #809191;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.company-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #002b5b;
+    margin: 0 0 10px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.company-rating {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    color: #ffc107;
+    margin-bottom: 10px;
+}
+
+.star-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Company Details (Expanded) */
+.company-details {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-info-inline {
+    margin-bottom: 15px;
+}
+
+.contact-item-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact-icon-small {
+    color: #002b5b;
+    flex-shrink: 0;
+}
+
+.whatsapp-small {
+    color: #25d366;
+}
+
+.contact-text {
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+}
+
+.action-buttons-inline {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.action-btn-small {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.call-btn {
+    background-color: #809191;
+    color: white;
+}
+
+.call-btn:hover {
+    background-color: #6a7a7a;
+}
+
+.whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+}
+
+.whatsapp-btn:hover {
+    background-color: #20bd5a;
+}
+
+.action-btn-small svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .logistics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .logistics-card.expanded {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .logistics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .logistics-card {
+        padding: 15px;
+    }
+
+    .logistics-card.expanded {
+        grid-column: span 2;
+    }
+
+    .company-name {
+        font-size: 16px;
+    }
+
+    .action-buttons-inline {
+        flex-direction: column;
+    }
+
+    .action-btn-small {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logistics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logistics-card.expanded {
+        grid-column: span 1;
+    }
+}

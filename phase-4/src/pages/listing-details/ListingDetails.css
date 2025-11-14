@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.listing-details-page {
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px 60px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Back Button */
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #0077b6;
+}
+
+.back-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Main Content Layout */
+.listing-content {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.listing-main {
+    flex: 1;
+}
+
+.listing-sidebar {
+    flex: 0 0 400px;
+}
+
+/* Listing Header */
+.listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.listing-title-section {
+    flex: 1;
+}
+
+.listing-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #002b5b;
+    margin: 0 0 8px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.listing-location {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.listing-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.action-button:hover {
+    border-color: #0077b6;
+    color: #0077b6;
+}
+
+.action-button.active {
+    color: #e63946;
+    border-color: #e63946;
+}
+
+/* Listed By */
+.listed-by {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.host-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ddd;
+    flex-shrink: 0;
+}
+
+.host-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.host-label {
+    font-size: 13px;
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.host-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #002b5b;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.host-price {
+    font-size: 14px;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #002b5b;
+    margin: 30px 0 15px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Description Section */
+.description-section {
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.description-text {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .listing-content {
+        flex-direction: column;
+    }
+
+    .listing-sidebar {
+        flex: 1;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .listing-details-page {
+        padding: 15px 20px;
+    }
+
+    .listing-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .listing-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .listing-title {
+        font-size: 24px;
+    }
+}
