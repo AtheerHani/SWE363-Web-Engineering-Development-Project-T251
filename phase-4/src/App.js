@@ -8,6 +8,7 @@ import Profile from "./profile/Profile";
 import AdminProfile from "./pages/admin/AdminProfile";
 import Payment from "./pages/payment/Payment";
 import ListingDetails from "./pages/listing-details/ListingDetails";
+import Home from "./pages/home/Home";
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                 <main className="main-content">
                     <Routes>
                         <Route path="/" element={<Login/>}/>
+                        <Route path="/home" element={<Home/>}/>
                         <Route path="/signup" element={<Signup/>}/>
                         <Route path="/profile" element={<Profile/>}/>
                         <Route path="/admin/profile" element={<AdminProfile/>}/>

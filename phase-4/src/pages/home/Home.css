@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.home-page {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Add spacing between sections */
+.home-page > * {
+    margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-page {
+        padding-top: 0;
+    }
+}

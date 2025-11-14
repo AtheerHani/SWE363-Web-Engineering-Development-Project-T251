@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.property-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.property-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.property-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #e0e0e0;
+    overflow: hidden;
+}
+
+.property-card.featured .property-image {
+    height: 250px;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.favorite-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+    z-index: 2;
+}
+
+.favorite-button:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.favorite-button.active {
+    color: #e63946;
+}
+
+.rating-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: flex;
+    gap: 3px;
+    color: #ffc107;
+}
+
+.star-icon {
+    width: 14px;
+    height: 14px;
+}
+
+.property-info {
+    padding: 16px;
+}
+
+.property-card.featured .property-info {
+    padding: 20px;
+}
+
+.property-price-tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.property-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 8px 0;
+}
+
+.property-card.featured .property-title {
+    font-size: 18px;
+}
+
+.property-price {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    font-weight: 500;
+}
+
+.property-features {
+    display: flex;
+    gap: 15px;
+    margin-top: 12px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #666;
+}
+
+.feature-item svg {
+    width: 16px;
+    height: 16px;
+    color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .property-image {
+        height: 180px;
+    }
+
+    .property-card.featured .property-image {
+        height: 220px;
+    }
+
+    .property-info {
+        padding: 14px;
+    }
+
+    .property-title {
+        font-size: 15px;
+    }
+
+    .property-card.featured .property-title {
+        font-size: 16px;
+    }
+}
