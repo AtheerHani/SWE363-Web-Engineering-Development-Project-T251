@@ -1,20 +1,52 @@
-// src/profile/Profile.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Profile.css";
 
 const Profile = () => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [user, setUser] = useState({
+  const defaultUser = {
     name: "John Doe",
     joined: "2021",
     about: "",
     location: "",
     work: "",
+    photo: null,
+  };
+
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem("userProfile");
+    return saved ? JSON.parse(saved) : defaultUser;
   });
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [editData, setEditData] = useState(user);
+
+  useEffect(() => {
+    localStorage.setItem("userProfile", JSON.stringify(user));
+  }, [user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setEditData({ ...editData, [name]: value });
+  };
+
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setEditData({ ...editData, photo: reader.result });
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleSave = () => {
+    setUser(editData);
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setEditData(user);
+    setIsEditing(false);
   };
 
   return (
@@ -23,17 +55,33 @@ const Profile = () => {
       <div className="profile-left">
         <div className="profile-box">
           <div className="profile-photo">
-            <div className="profile-avatar"></div>
-            <p>Upload a Photo</p>
+            <div className="profile-avatar">
+              {user.photo && (
+                <img src={user.photo} alt="Profile" className="avatar-img" />
+              )}
+            </div>
+
+            {isEditing ? (
+              <label className="upload-btn">
+                Upload Photo
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handlePhotoUpload}
+                  style={{ display: "none" }}
+                />
+              </label>
+            ) : (
+              <p>Upload a Photo</p>
+            )}
           </div>
 
           <div className="profile-verification">
-            <h4>Identity Verification</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor.
-            </p>
+            <h4 className="identity-title">Identity Verification</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
             <h4>{user.name}</h4>
+
             <ul>
               <li>✔ Email Confirmed</li>
               <li>✔ Mobile Confirmed</li>
@@ -49,7 +97,31 @@ const Profile = () => {
             <h2>Hello, {user.name}</h2>
             <p>Joined in {user.joined}</p>
 
-            <button className="edit-btn" onClick={() => setIsEditing(true)}>
+            {user.about && (
+              <p>
+                <strong>About:</strong> {user.about}
+              </p>
+            )}
+
+            {user.location && (
+              <p>
+                <strong>Location:</strong> {user.location}
+              </p>
+            )}
+
+            {user.work && (
+              <p>
+                <strong>Work:</strong> {user.work}
+              </p>
+            )}
+
+            <button
+              className="edit-btn"
+              onClick={() => {
+                setEditData(user);
+                setIsEditing(true);
+              }}
+            >
               Edit Profile
             </button>
 
@@ -61,44 +133,49 @@ const Profile = () => {
           <div className="edit-section">
             <h2>Edit Profile</h2>
 
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              value={editData.name}
+              onChange={handleChange}
+            />
+
             <label>About</label>
             <textarea
               name="about"
-              value={user.about}
+              value={editData.about}
               onChange={handleChange}
-              placeholder="Tell us about yourself..."
             ></textarea>
 
             <label>Location</label>
             <input
               type="text"
               name="location"
-              value={user.location}
+              value={editData.location}
               onChange={handleChange}
-              placeholder="Enter your location"
             />
 
             <label>Work</label>
             <input
               type="text"
               name="work"
-              value={user.work}
+              value={editData.work}
               onChange={handleChange}
-              placeholder="Enter your work"
             />
 
+            <label>Upload Profile Photo</label>
+            <input type="file" accept="image/*" onChange={handlePhotoUpload} />
+
             <p className="note">
-              All the required user information can be added here...
+              Your data will remain saved even after refreshing.
             </p>
 
             <div className="buttons">
-              <button
-                className="cancel-btn"
-                onClick={() => setIsEditing(false)}
-              >
+              <button className="cancel-btn" onClick={handleCancel}>
                 ✖ Cancel
               </button>
-              <button className="save-btn" onClick={() => setIsEditing(false)}>
+              <button className="save-btn" onClick={handleSave}>
                 Save
               </button>
             </div>
