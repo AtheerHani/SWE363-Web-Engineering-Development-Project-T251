@@ -6,6 +6,7 @@ import Signup from "./signup/Signup";
 import Login from "./login/Login";
 import Profile from "./profile/Profile";
 import AdminProfile from "./pages/admin/AdminProfile";
+import Payment from "./pages/payment/Payment";
 import "./App.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                         <Route path="/signup" element={<Signup/>}/>
                         <Route path="/profile" element={<Profile/>}/>
                         <Route path="/admin/profile" element={<AdminProfile/>}/>
+                        <Route path="/payment" element={<Payment/>}/>
                     </Routes>
                 </main>
                 <Footer/>

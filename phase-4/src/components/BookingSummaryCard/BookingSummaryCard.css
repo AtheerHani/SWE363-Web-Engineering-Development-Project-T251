@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.booking-summary-card {
+    background-color: #f5f5f7;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.room-preview {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.room-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #b8bfc6;
+    flex-shrink: 0;
+}
+
+.room-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.room-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #002b5b;
+    margin: 0 0 6px 0;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.3;
+}
+
+.room-location {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Room Features */
+.room-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.feature-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: white;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #e0e0e0;
+}
+
+/* Price Details */
+.price-details {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.price-details-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #002b5b;
+    margin: 0 0 15px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.price-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.price-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #002b5b;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .booking-summary-card {
+        padding: 20px;
+    }
+
+    .room-preview {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .room-image {
+        width: 100px;
+        height: 100px;
+    }
+}
