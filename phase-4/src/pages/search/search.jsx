@@ -143,7 +143,6 @@ const Search = () => {
             <div className="search-section">
                 <div className="search-container">
                     <h1 className="search-title">FIND</h1>
-                    <p className="search-subtitle">Search by city</p>
 
                     <div className="search-form">
                         <div className="search-field">
