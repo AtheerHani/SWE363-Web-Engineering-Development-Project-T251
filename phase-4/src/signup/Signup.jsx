@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const [country, setCountry] = useState("SA (+966)");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -12,16 +14,27 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Basic validation
     if (!phone || !password || !confirmPassword) {
       setError("Please fill in all fields.");
       return;
     }
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return;
+    }
+
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
       return;
     }
 
-    alert("Signup successful ✅");
+    // Everything is valid → clear errors
+    setError("");
+
+    // Redirect to homepage
+    navigate("/home"); // 👈 Change the route here if needed
   };
 
   return (

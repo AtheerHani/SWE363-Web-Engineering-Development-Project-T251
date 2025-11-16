@@ -1,19 +1,31 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 
 const Login = () => {
+  const navigate = useNavigate(); // <-- used for redirect
+
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validation
     if (!phone || !password) {
       setError("Please fill in all fields.");
       return;
     }
+
+    // Clear errors (optional)
+    setError("");
+
+    // Successful login
     alert("Login successful ✅");
+
+    // Redirect to home page
+    navigate("/home");
   };
 
   return (
