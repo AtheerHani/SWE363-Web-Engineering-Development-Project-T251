@@ -1,0 +1,58 @@
+.approve-listings-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.approve-listings-container h2 {
+    color: #0e305d;
+    font-weight: 700;
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-badge.pending {
+    background-color: #f0ad4e;
+    color: #fff;
+}
+
+.status-badge.approved {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.status-badge.rejected {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+.table th {
+    background-color: #0e305d;
+    color: #fff;
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+.status-badge.pending {
+    background-color: #f0ad4e;
+    color: #fff;
+}
+
+.status-badge.approved {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.status-badge.rejected {
+    background-color: #d9534f;
+    color: #fff;
+}

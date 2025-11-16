@@ -1,0 +1,33 @@
+.admin-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.modify-btn {
+    background-color: #0e305d;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.modify-btn:hover {
+    background-color: #072b52;
+}
+
+.remove-btn {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.remove-btn:hover {
+    background-color: #b52b2b;
+}

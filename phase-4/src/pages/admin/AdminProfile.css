@@ -1,37 +1,131 @@
-.profile-pic-placeholder {
-    width: 100px;
-    height: 100px;
-    background-color: #ccc;
-    border-radius: 50%;
-    line-height: 100px;
-    text-align: center;
-    font-weight: bold;
-    margin: auto;
+/* === PAGE LAYOUT === */
+.profile-page {
+    display: flex;
+    gap: 60px;
+    padding: 60px 80px;
+    background: #ffffff;
+    min-height: 100vh;
 }
-.profile-card {
+
+/* === LEFT COLUMN === */
+.profile-left {
+    flex: 0 0 280px;
+}
+
+.profile-box {
+    background-color: #eff0f2;
+    border-radius: 8px;
+    padding: 40px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
     min-height: 600px;
-    margin-bottom: 30px/* adjust as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
+.profile-photo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-avatar {
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    background: #0e305d;
+    overflow: hidden;
+    margin: 0 auto 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-text {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* === VERIFICATION SECTION === */
+.profile-verification {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.identity-title {
+    color: #0e305d;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.profile-verification p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.profile-verification ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #0e305d;
+    font-size: 0.9rem;
+}
+
+.profile-verification li {
+    margin-bottom: 8px;
+}
+
+/* === RIGHT SIDE === */
+.profile-right {
+    flex: 1;
+}
+
+.profile-right h2 {
+    font-size: 1.6rem;
+    color: #0e305d;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.profile-right p {
+    color: #7b7a7a;
+    margin-bottom: 10px;
+}
+/* === ACTION CARDS === */
+.admin-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* exactly 2 per row */
+    gap: 20px; /* spacing between cards */
+    margin-top: 20px;
+}
+
 .action-card {
+    background-color: #eff0f2;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.35); /* light gray background */
-    color: #666;              /* text color */
-    transition: box-shadow 0.2s ease;
-    border: none;             /* optional: remove default border */
+    font-weight: 600;
+    color: #0e305d;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s;
 }
 
 .action-card:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    background-color: #e0e0e0; /* slightly darker gray on hover */
+    background-color: #0e305d;
+    color: #fff;
 }
-.list-group-item {
-    cursor: pointer;
-    color: #444;
-    background-color: #fff;
-    border: 1px solid #ddd;
-}
-
-.list-group-item:hover {
-    background-color: #f2f2f2;
+.profile-right .admin-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+    margin-top: 20px;
 }
 
+.profile-right .admin-actions .action-card {
+    display: block;          /* ensure full-width grid item */
+    width: 100%;             /* fills its grid cell */
+}

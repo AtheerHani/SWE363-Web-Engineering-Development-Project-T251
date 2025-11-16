@@ -1,51 +1,78 @@
 .user-management-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
+/* Heading */
+.user-management-container h2 {
+    color: #0e305d;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Search bar */
+.user-management-container input[type="text"] {
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+}
+
+/* Table */
+.user-management-container table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.user-management-container thead {
+    background-color: #0e305d;
+    color: #fff;
+}
+
+.user-management-container th {
+    font-weight: 600;
+    text-align: center;
+}
+
+.user-management-container td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Buttons */
 .user-management-container .btn-danger {
     background-color: #d9534f;
     border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-weight: 600;
 }
 
 .user-management-container .btn-success {
     background-color: #5cb85c;
     border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-weight: 600;
 }
 
 .user-management-container .btn-secondary {
-    background-color: #999;
+    background-color: #0e305d;
     border: none;
-    margin-bottom: 30px;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-weight: 600;
+    color: #fff;
 }
 
 .user-management-container .btn-secondary:hover {
-    background-color: #777;
+    background-color: #072b52;
 }
 
-.user-management-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.user-management-container .btn-danger {
-    background-color: #d9534f;
-    border: none;
-}
-
-.user-management-container .btn-success {
-    background-color: #5cb85c;
-    border: none;
-}
-
-.user-management-container .btn-secondary {
-    background-color: #999;
-    border: none;
-    margin-bottom: 30px;
-}
-
-.user-management-container .btn-secondary:hover {
-    background-color: #777;
+/* Go Back button alignment */
+.user-management-container .text-end {
+    margin-top: 20px;
 }

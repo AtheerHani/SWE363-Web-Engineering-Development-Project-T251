@@ -1,0 +1,67 @@
+/* === PAGE LAYOUT === */
+.dashboard-container {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0);   /* 👈 this is the light gray background */
+    min-height: 100vh;
+}
+
+/* === STAT CARDS === */
+.stat-card {
+    background: #0e305d;   /* keep the dark blue for stats */
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+    margin-top: 10px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* === CHART & ACTIVITY CARDS === */
+.chart-card, .activity-card {
+    border-radius: 10px;
+    background: #fff;      /* 👈 white background instead of gray */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+/* === CHART PLACEHOLDER === */
+.chart-placeholder {
+    height: 220px;
+    background: #fff;      /* 👈 white background */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-style: italic;
+    border: none;          /* remove any border */
+}
+
+/* === ACTIVITY LIST === */
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee; /* lighter divider */
+}
+
+.activity-list li:last-child {
+    border-bottom: none;
+}
+/* Force all custom dashboard cards to be white */
+.stat-card,
+.chart-card,
+.activity-card {
+    background-color: #fff !important;  /* override Bootstrap's gray */
+    border: none !important;            /* remove default border */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
