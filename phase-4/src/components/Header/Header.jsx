@@ -20,12 +20,6 @@ const Header = () => {
         <a href="#">Find a space</a>
         <a href="#">Learn More</a>
       </nav>
-
-      <div className="header-right">
-        <button className="rent-button" onClick={handleRentYourSpace}>
-          Rent Your Space
-        </button>
-      </div>
     </header>
   );
 };
