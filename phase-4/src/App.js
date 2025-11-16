@@ -9,6 +9,7 @@ import Profile from "./profile/Profile";
 import AdminProfile from "./pages/admin/AdminProfile";
 import Payment from "./pages/payment/Payment";
 import ListingDetails from "./pages/listing-details/ListingDetails";
+import Search from "./pages/search/search";
 import Home from "./pages/home/Home";
 import HostProfile from "./hostProfile/HostProfile";
 import "./App.css";
@@ -29,6 +30,7 @@ function AppContent() {
                     <Route path="/" element={<Login />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/signup" element={<Signup />} />
+                    <Route path="/search" element={<Search />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/hostProfile" element={<HostProfile />} />
                     <Route path="/admin/profile" element={<AdminProfile />} />

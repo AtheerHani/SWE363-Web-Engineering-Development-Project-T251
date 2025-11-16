@@ -18,6 +18,12 @@
     margin-bottom: 20px;
 }
 
+.price-header .riyal-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
 .price-amount {
     font-size: 32px;
     font-weight: 700;
@@ -55,6 +61,15 @@
     font-size: 14px;
     font-weight: 600;
     color: #002b5b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.price-value .riyal-icon-small {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
 }
 
 .reserve-button {

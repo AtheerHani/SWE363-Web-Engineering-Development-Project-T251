@@ -5,22 +5,32 @@ const PriceCard = ({ pricing, onReserve, onSpaceInquiry, onContactHost }) => {
     return (
         <div className="price-card">
             <div className="price-header">
-                <span className="price-amount">﷼{pricing.perDay}</span>
+                <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon" />
+                <span className="price-amount">{pricing.perDay}</span>
                 <span className="price-period">per day</span>
             </div>
 
             <div className="price-details">
                 <div className="price-row">
                     <span className="price-label">Per Days:</span>
-                    <span className="price-value">﷼{pricing.perDay}</span>
+                    <span className="price-value">
+                        <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-small" />
+                        {pricing.perDay}
+                    </span>
                 </div>
                 <div className="price-row">
                     <span className="price-label">Per Weeks:</span>
-                    <span className="price-value">﷼{pricing.perWeek}</span>
+                    <span className="price-value">
+                        <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-small" />
+                        {pricing.perWeek}
+                    </span>
                 </div>
                 <div className="price-row">
                     <span className="price-label">Per Months:</span>
-                    <span className="price-value">﷼{pricing.perMonth}</span>
+                    <span className="price-value">
+                        <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-small" />
+                        {pricing.perMonth}
+                    </span>
                 </div>
             </div>
 

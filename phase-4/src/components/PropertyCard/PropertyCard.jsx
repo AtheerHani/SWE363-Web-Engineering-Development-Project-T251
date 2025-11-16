@@ -77,13 +77,19 @@ const PropertyCard = ({
             <div className="property-info">
                 {featured && (
                     <div className="property-price-tag">
-                        ﷼{property.pricePerDay} - ﷼{property.pricePerHour}
+                        <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-small" />
+                        {property.pricePerDay} - 
+                        <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-small" />
+                        {property.pricePerHour}
                     </div>
                 )}
                 <h3 className="property-title">{property.title}</h3>
                 {!featured && (
                     <p className="property-price">
-                        ﷼{property.pricePerDay} - ﷼{property.pricePerHour}
+                        <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-small" />
+                        {property.pricePerDay} - 
+                        <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-small" />
+                        {property.pricePerHour}
                     </p>
                 )}
                 {/* 👇 Features only show if showFeatures is true */}

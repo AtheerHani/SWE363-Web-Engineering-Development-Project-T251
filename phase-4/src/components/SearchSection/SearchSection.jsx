@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SearchSection.css";
 
 const SearchSection = () => {
+    const navigate = useNavigate();
     const [location, setLocation] = useState("");
     const [checkIn, setCheckIn] = useState("");
     const [checkOut, setCheckOut] = useState("");
 
     const handleSearch = () => {
-        // Handle search logic here
-        console.log("Searching:", { location, checkIn, checkOut });
+        // Navigate to search page when search button is clicked
+        navigate("/search");
     };
 
     return (
@@ -22,7 +24,7 @@ const SearchSection = () => {
                         <label>Location</label>
                         <input
                             type="text"
-                            placeholder="Where are you going?"
+                            placeholder="Search property"
                             value={location}
                             onChange={(e) => setLocation(e.target.value)}
                         />

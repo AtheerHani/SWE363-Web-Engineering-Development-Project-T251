@@ -168,7 +168,11 @@ const ListingDetails = () => {
                         <div className="host-info">
                             <span className="host-label">Listed By:</span>
                             <span className="host-name">{listingData.listedBy}</span>
-                            <span className="host-price">Per: ﷼1 per day</span>
+                            <span className="host-price">
+                                Per: 
+                                <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-tiny" />
+                                1 per day
+                            </span>
                         </div>
                     </div>
 

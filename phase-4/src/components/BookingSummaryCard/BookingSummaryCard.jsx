@@ -34,15 +34,24 @@ const BookingSummaryCard = ({ bookingData }) => {
                 <h4 className="price-details-title">Price Details</h4>
                 <div className="price-row">
                     <span className="price-label">Per Days:</span>
-                    <span className="price-value">{pricing.perDay}﷼</span>
+                    <span className="price-value">
+                        <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-small" />
+                        {pricing.perDay}
+                    </span>
                 </div>
                 <div className="price-row">
                     <span className="price-label">Per Weeks:</span>
-                    <span className="price-value">{pricing.perWeek}﷼</span>
+                    <span className="price-value">
+                        <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-small" />
+                        {pricing.perWeek}
+                    </span>
                 </div>
                 <div className="price-row">
                     <span className="price-label">Per Months:</span>
-                    <span className="price-value">{pricing.perMonth}﷼</span>
+                    <span className="price-value">
+                        <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-small" />
+                        {pricing.perMonth}
+                    </span>
                 </div>
             </div>
         </div>
