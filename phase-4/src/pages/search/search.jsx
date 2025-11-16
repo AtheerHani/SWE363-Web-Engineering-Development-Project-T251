@@ -9,25 +9,24 @@ const Search = () => {
     const [location, setLocation] = useState("");
     const [checkIn, setCheckIn] = useState("");
     const [checkOut, setCheckOut] = useState("");
-    const [selectedAmenities, setSelectedAmenities] = useState([]);
+    const [selectedFeatures, setSelectedFeatures] = useState([]);
     const [priceRange, setPriceRange] = useState({ min: 0, max: 500 });
     const [sortBy, setSortBy] = useState("featured");
     const [searchTriggered, setSearchTriggered] = useState(false);
 
-    // Amenity options
-    const amenityOptions = [
-        { id: "size", label: "Size", icon: "📏" },
+    // Feature options
+    const featureOptions = [
         { id: "ac", label: "AC", icon: "/assets/icons/ac.png", isImage: true },
         { id: "smart-lock", label: "Smart Lock", icon: "/assets/icons/smart-lock.png", isImage: true },
         { id: "humidity-sensor", label: "Humidity Sensor", icon: "/assets/icons/humidity-sensor.png", isImage: true },
     ];
 
-    // Toggle amenity selection
-    const toggleAmenity = (amenityId) => {
-        setSelectedAmenities((prev) =>
-            prev.includes(amenityId)
-                ? prev.filter((id) => id !== amenityId)
-                : [...prev, amenityId]
+    // Toggle feature selection
+    const toggleFeature = (featureId) => {
+        setSelectedFeatures((prev) =>
+            prev.includes(featureId)
+                ? prev.filter((id) => id !== featureId)
+                : [...prev, featureId]
         );
     };
 
@@ -106,8 +105,8 @@ const Search = () => {
         let filtered = allProperties.filter((property) => {
             const priceInRange =
                 property.pricePerDay >= priceRange.min && property.pricePerDay <= priceRange.max;
-            const hasSelectedAmenities = selectedAmenities.length === 0; // Simplified for now
-            return priceInRange && hasSelectedAmenities;
+            const hasSelectedFeatures = selectedFeatures.length === 0; // Simplified for now
+            return priceInRange && hasSelectedFeatures;
         });
 
         // Sort
@@ -122,7 +121,7 @@ const Search = () => {
         }
 
         return filtered;
-    }, [selectedAmenities, priceRange, sortBy, searchTriggered]);
+    }, [selectedFeatures, priceRange, sortBy, searchTriggered]);
 
     // Handle search button click
     const handleSearch = () => {
@@ -131,7 +130,7 @@ const Search = () => {
 
     // Reset filters
     const handleReset = () => {
-        setSelectedAmenities([]);
+        setSelectedFeatures([]);
         setPriceRange({ min: 0, max: 500 });
         setSortBy("featured");
         setSearchTriggered(false);
@@ -190,25 +189,25 @@ const Search = () => {
                     <h2 className="filters-title">Filter Properties</h2>
                 </div>
 
-                {/* Amenities Filters */}
-                <div className="filter-group amenities-filter">
-                    <h3 className="filter-label">Amenities</h3>
-                    <div className="amenities-grid">
-                        {amenityOptions.map((amenity) => (
+                {/* Features Filters */}
+                <div className="filter-group features-filter">
+                    <h3 className="filter-label">Features</h3>
+                    <div className="features-grid">
+                        {featureOptions.map((feature) => (
                             <button
-                                key={amenity.id}
-                                className={`amenity-btn ${
-                                    selectedAmenities.includes(amenity.id) ? "active" : ""
+                                key={feature.id}
+                                className={`feature-btn ${
+                                    selectedFeatures.includes(feature.id) ? "active" : ""
                                 }`}
-                                onClick={() => toggleAmenity(amenity.id)}
-                                title={amenity.label}
+                                onClick={() => toggleFeature(feature.id)}
+                                title={feature.label}
                             >
-                                {amenity.isImage ? (
-                                    <img src={amenity.icon} alt={amenity.label} className="amenity-icon-img" />
+                                {feature.isImage ? (
+                                    <img src={feature.icon} alt={feature.label} className="feature-icon-img" />
                                 ) : (
-                                    <span className="amenity-icon">{amenity.icon}</span>
+                                    <span className="feature-icon">{feature.icon}</span>
                                 )}
-                                <span className="amenity-label">{amenity.label}</span>
+                                <span className="feature-label">{feature.label}</span>
                             </button>
                         ))}
                     </div>
