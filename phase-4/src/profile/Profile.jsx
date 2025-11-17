@@ -39,6 +39,10 @@ const Profile = () => {
     reader.readAsDataURL(file);
   };
 
+  const handleRemovePhoto = () => {
+    setEditData({ ...editData, photo: null });
+  };
+
   const handleSave = () => {
     setUser(editData);
     setIsEditing(false);
@@ -61,18 +65,27 @@ const Profile = () => {
               )}
             </div>
 
-            {isEditing ? (
-              <label className="upload-btn">
-                Upload Photo
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handlePhotoUpload}
-                  style={{ display: "none" }}
-                />
-              </label>
-            ) : (
-              <p>Upload a Photo</p>
+            {isEditing && (
+              <>
+                <label className="upload-btn">
+                  Upload Photo
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handlePhotoUpload}
+                    style={{ display: "none" }}
+                  />
+                </label>
+
+                {editData.photo && (
+                  <button
+                    className="remove-photo-btn"
+                    onClick={handleRemovePhoto}
+                  >
+                    Remove Photo
+                  </button>
+                )}
+              </>
             )}
           </div>
 
@@ -166,6 +179,12 @@ const Profile = () => {
 
             <label>Upload Profile Photo</label>
             <input type="file" accept="image/*" onChange={handlePhotoUpload} />
+
+            {editData.photo && (
+              <button className="remove-photo-btn" onClick={handleRemovePhoto}>
+                Remove Photo
+              </button>
+            )}
 
             <p className="note">
               Your data will remain saved even after refreshing.

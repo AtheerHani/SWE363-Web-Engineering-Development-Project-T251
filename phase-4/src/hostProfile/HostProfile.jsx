@@ -39,6 +39,10 @@ const HostProfile = () => {
     reader.readAsDataURL(file);
   };
 
+  const handleRemovePhoto = () => {
+    setEditData({ ...editData, photo: null });
+  };
+
   const handleSave = () => {
     setUser(editData);
     setIsEditing(false);
@@ -61,18 +65,38 @@ const HostProfile = () => {
               )}
             </div>
 
-            {isEditing ? (
-              <label className="upload-btn">
-                Upload Photo
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handlePhotoUpload}
-                  style={{ display: "none" }}
-                />
-              </label>
-            ) : (
-              <p>Upload a Photo</p>
+            {/* Upload Photo (editing only) */}
+            {isEditing && (
+              <>
+                <label className="upload-btn">
+                  Upload Photo
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handlePhotoUpload}
+                    style={{ display: "none" }}
+                  />
+                </label>
+
+                {editData.photo && (
+                  <button
+                    className="remove-photo-btn"
+                    onClick={handleRemovePhoto}
+                    style={{
+                      marginTop: "10px",
+                      padding: "6px 12px",
+                      background: "#d9534f",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "6px",
+                      cursor: "pointer",
+                      fontSize: "0.85rem",
+                    }}
+                  >
+                    Remove Photo
+                  </button>
+                )}
+              </>
             )}
           </div>
 
@@ -80,7 +104,7 @@ const HostProfile = () => {
             <h4 className="identity-title">Identity Verification</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-            <h4>{user.name} -Host</h4>
+            <h4>{user.name} - Host</h4>
 
             <ul>
               <li>✔ Email Confirmed</li>
@@ -166,6 +190,25 @@ const HostProfile = () => {
 
             <label>Upload Profile Photo</label>
             <input type="file" accept="image/*" onChange={handlePhotoUpload} />
+
+            {editData.photo && (
+              <button
+                className="remove-photo-btn"
+                onClick={handleRemovePhoto}
+                style={{
+                  marginTop: "10px",
+                  padding: "6px 12px",
+                  background: "#d9534f",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "6px",
+                  cursor: "pointer",
+                  fontSize: "0.85rem",
+                }}
+              >
+                Remove Photo
+              </button>
+            )}
 
             <p className="note">
               Your data will remain saved even after refreshing.
