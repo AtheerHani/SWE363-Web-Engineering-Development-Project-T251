@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { SpaceCreationProvider } from "./context/SpaceCreationContext";
 import Header from "./components/Header/Header";
 import HeaderLoggedIn from "./components/HeaderLoggedIn/HeaderLoggedIn";
 import Footer from "./components/Footer/Footer";
@@ -12,6 +13,7 @@ import ListingDetails from "./pages/listing-details/ListingDetails";
 import Search from "./pages/search/search";
 import Home from "./pages/home/Home";
 import HostProfile from "./hostProfile/HostProfile";
+import Step1 from "./pages/space-creation/step-1/Step1";
 import "./App.css";
 
 function AppContent() {
@@ -19,6 +21,7 @@ function AppContent() {
 
     // Show old Header ONLY on Login and Signup pages
     const showOldHeader = location.pathname === "/" || location.pathname === "/signup";
+    const isSpaceCreation = location.pathname.startsWith("/space-creation");
 
     return (
         <div className="App">
@@ -28,6 +31,7 @@ function AppContent() {
             <main className="main-content">
                 <Routes>
                     <Route path="/" element={<Login />} />
+                    <Route path="/login" element={<Login />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/search" element={<Search />} />
@@ -36,10 +40,20 @@ function AppContent() {
                     <Route path="/admin/profile" element={<AdminProfile />} />
                     <Route path="/payment" element={<Payment />} />
                     <Route path="/listing/:id" element={<ListingDetails />} />
+                    
+                    {/* Space Creation Routes */}
+                    <Route 
+                        path="/space-creation/step-1" 
+                        element={
+                            <SpaceCreationProvider>
+                                <Step1 />
+                            </SpaceCreationProvider>
+                        } 
+                    />
                 </Routes>
             </main>
 
-            <Footer />
+            {!isSpaceCreation && <Footer />}
         </div>
     );
 }

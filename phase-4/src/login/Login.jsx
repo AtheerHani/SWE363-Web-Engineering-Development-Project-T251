@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./login.css";
 
 const Login = () => {
-  const navigate = useNavigate(); // <-- used for redirect
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  // Check if coming from "Rent Your Space" button
+  const isFromRentYourSpace = location.state?.fromRentYourSpace || false;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,13 +28,23 @@ const Login = () => {
     // Successful login
     alert("Login successful ✅");
 
-    // Redirect to home page
-    navigate("/home");
+    // Redirect based on where they came from
+    if (isFromRentYourSpace) {
+      navigate("/space-creation/step-1");
+    } else {
+      navigate("/home");
+    }
   };
 
   return (
     <div className="signup-container">
       <div className="signup-card">
+        {isFromRentYourSpace && (
+          <div className="rent-space-notice">
+            <p>Log in to proceed with renting your space</p>
+          </div>
+        )}
+
         <h2>Login or Signup</h2>
         <hr className="title-divider" />
 

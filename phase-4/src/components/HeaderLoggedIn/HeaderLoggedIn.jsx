@@ -9,7 +9,8 @@ const HeaderLoggedIn = () => {
     const dropdownRef = useRef(null);
 
     const handleRentYourSpace = () => {
-        navigate("/signup");
+        // If logged in, go directly to space creation step 1
+        navigate("/space-creation/step-1");
     };
 
     const toggleDropdown = () => {
