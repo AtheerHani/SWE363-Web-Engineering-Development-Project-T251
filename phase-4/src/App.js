@@ -7,11 +7,13 @@ import {
 } from "react-router-dom";
 
 import { SpaceCreationProvider } from "./context/SpaceCreationContext";
+import { WishlistProvider } from "./context/WishlistContext"; // ✅ Added
 
 import Header from "./components/Header/Header";
 import HeaderLoggedIn from "./components/HeaderLoggedIn/HeaderLoggedIn";
 import Footer from "./components/Footer/Footer";
 
+// Pages
 import Signup from "./signup/Signup";
 import Login from "./login/Login";
 import Profile from "./profile/Profile";
@@ -22,6 +24,7 @@ import Search from "./pages/search/search";
 import Home from "./pages/home/Home";
 import HostProfile from "./hostProfile/HostProfile";
 import Step1 from "./pages/space-creation/step-1/Step1";
+import Wishlist from "./pages/Wishlist/Wishlist";
 
 import "./App.css";
 
@@ -29,23 +32,17 @@ function AppContent() {
   const location = useLocation();
 
   /* ------------ Which header to show ------------- */
-
-  // OPTION A: Explicit paths (simple fix)
   const showOldHeader =
     location.pathname === "/" ||
     location.pathname === "/login" ||
     location.pathname === "/signup";
-
-  // OPTIONAL CLEANER VERSION:
-  // const oldHeaderPages = ["/", "/login", "/signup"];
-  // const showOldHeader = oldHeaderPages.includes(location.pathname);
 
   /* ------------ Hide footer on space-creation pages ------------- */
   const isSpaceCreation = location.pathname.startsWith("/space-creation");
 
   return (
     <div className="App">
-      {/* Show Header on Login/Signup, HeaderLoggedIn on all other pages */}
+      {/* Public header vs Logged-in header */}
       {showOldHeader ? <Header /> : <HeaderLoggedIn />}
 
       <main className="main-content">
@@ -60,8 +57,9 @@ function AppContent() {
           <Route path="/admin/profile" element={<AdminProfile />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/listing/:id" element={<ListingDetails />} />
+          <Route path="/wishlist" element={<Wishlist />} />
 
-          {/* Space Creation Routes */}
+          {/* Space Creation */}
           <Route
             path="/space-creation/step-1"
             element={
@@ -73,7 +71,7 @@ function AppContent() {
         </Routes>
       </main>
 
-      {/* Hide footer on space-creation pages */}
+      {/* Footer hidden on space-creation pages */}
       {!isSpaceCreation && <Footer />}
     </div>
   );
@@ -82,7 +80,10 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      <AppContent />
+      {/* ❤️ Wrap entire site with WishlistProvider */}
+      <WishlistProvider>
+        <AppContent />
+      </WishlistProvider>
     </Router>
   );
 }
