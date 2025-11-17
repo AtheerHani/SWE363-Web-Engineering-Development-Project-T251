@@ -4,38 +4,29 @@ export const SpaceCreationContext = createContext();
 
 export const SpaceCreationProvider = ({ children }) => {
   const [formData, setFormData] = useState({
-    // Step 1 - Basic Info
-    spaceName: '',
-    spaceType: '',
+    // Step 1 - Storage Type Selection
+    storageTypes: [],
+    
+    // Step 2 - Description
     description: '',
     
-    // Step 2 - Location
-    address: '',
-    city: '',
-    district: '',
-    coordinates: { lat: null, lng: null },
-    
-    // Step 3 - Features & Amenities
+    // Step 3 - Features
     features: [],
-    amenities: [],
-    size: '',
     
     // Step 4 - Pricing
-    pricePerHour: '',
-    pricePerDay: '',
-    pricePerMonth: '',
-    currency: 'SAR',
+    startingPrice: '',
+    endingPrice: '',
+    billingFrequency: 'per month',
     
-    // Step 5 - Availability
-    availability: {},
-    holidays: [],
-    
-    // Step 6 - Photos & Documents
+    // Step 5 - Photos & Location
     photos: [],
-    documents: [],
+    location: { lat: null, lng: null, address: '' },
     
-    // Step 7 - Review & Submit
-    termsAccepted: false,
+    // Step 6 - Review
+    reviewed: false,
+    
+    // Step 7 - Confirmation
+    submitted: false,
   });
 
   const [currentStep, setCurrentStep] = useState(1);
