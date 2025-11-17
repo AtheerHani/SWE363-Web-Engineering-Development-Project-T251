@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSpaceCreation } from '../../../context/SpaceCreationContext';
-import HeaderLoggedIn from '../../../components/HeaderLoggedIn/HeaderLoggedIn';
 import './Step1.css';
 
 const Step1 = () => {
@@ -13,18 +12,19 @@ const Step1 = () => {
   const [validationErrors, setValidationErrors] = useState({});
 
   const storageOptions = [
-    { id: 'basement', label: 'Basement', icon: '🏚️' },
-    { id: 'household', label: 'Household Room', icon: '🏠' },
-    { id: 'garage', label: 'Garage', icon: '🚗' },
-    { id: 'docs', label: 'Docs Locker', icon: '📁' },
+    { id: 'basement', label: 'Basement', icon: '/assets/icons/basement.png' },
+    { id: 'household', label: 'Household Room', icon: '/assets/icons/household-room.png' },
+    { id: 'garage', label: 'Garage', icon: '/assets/icons/garage.png' },
+    { id: 'docs', label: 'Docs Locker', icon: '/assets/icons/docs-locker.png' },
   ];
 
+  // Single-selection only: selecting a new type replaces the previous selection.
   const handleTypeSelect = (typeId) => {
     setSelectedTypes((prev) => {
       if (prev.includes(typeId)) {
-        return prev.filter((t) => t !== typeId);
+        return []; // toggle off if already selected
       } else {
-        return [...prev, typeId];
+        return [typeId]; // replace with the new single selection
       }
     });
 
@@ -40,7 +40,7 @@ const Step1 = () => {
     const errors = {};
 
     if (selectedTypes.length === 0) {
-      errors.storageTypes = 'Please select at least one storage type';
+      errors.storageTypes = 'Please select one storage type';
     }
 
     setValidationErrors(errors);
@@ -56,18 +56,18 @@ const Step1 = () => {
     }
   };
 
+  // On the first step, replace "Back" with a link to the homepage.
   const handleBack = () => {
-    navigate(-1);
+    navigate('/home');
   };
 
   return (
     <div className="space-creation-page">
-      <HeaderLoggedIn />
 
       <div className="page-wrapper">
-        {/* Back Button */}
+        {/* Go to homepage (first step) */}
         <button className="back-button" onClick={handleBack}>
-          <span className="arrow">←</span> Back
+          <span className="arrow">←</span> Go to homepage
         </button>
 
         {/* Progress Bar */}
@@ -75,7 +75,7 @@ const Step1 = () => {
           <div className="progress-bar">
             <div className="progress-fill" style={{ width: '14.28%' }}></div>
           </div>
-          <p className="progress-text">Step 1 of 7</p>
+          <p className="progress-text">Step 1 of 8</p>
         </div>
 
         {/* Main Content */}
@@ -94,7 +94,9 @@ const Step1 = () => {
                 }`}
                 onClick={() => handleTypeSelect(option.id)}
               >
-                <div className="card-icon">{option.icon}</div>
+                <div className="card-icon">
+                  <img src={option.icon} alt={option.label} />
+                </div>
                 <div className="card-label">{option.label}</div>
               </div>
             ))}

@@ -1,0 +1,126 @@
+/* Step 7 - Location styles (copied from Step5 location styles) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.space-creation-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-wrapper {
+  flex: 1;
+  max-width: 1366px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.back-button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid #1A2A40;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A2A40;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-bar-container {
+  margin-bottom: 50px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #F2F2F2;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #557F80 0%, #8DEEF0 100%);
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+.progress-text {
+  font-size: 13px;
+  color: #809191;
+  font-weight: 500;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1A2A40;
+  line-height: 1.2;
+}
+
+.location-wrap {
+  display: flex;
+  gap: 24px;
+}
+
+.location-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.location-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1A2A40;
+}
+
+.location-input {
+  padding: 14px 20px;
+  border: 2px solid #AABCBD;
+  border-radius: 10px;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  color: #1A2A40;
+  background: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.location-input::placeholder {
+  color: #809191;
+}
+
+.location-input:hover { border-color: #557F80; }
+.location-input:focus { outline: none; border-color: #8DEEF0; box-shadow: 0 0 0 4px rgba(141,238,240,0.1); }
+.location-input.error { border-color: #e74c3c; }
+
+.error-message { color: #e74c3c; font-size: 13px; font-weight: 500; }
+
+.button-container { display: flex; gap: 16px; margin-top: 20px; }
+.btn-next { padding: 12px 32px; background: linear-gradient(135deg,#557F80 0%,#1A2A40 100%); color:#fff; border-radius:25px; border:none; font-weight:600; cursor:pointer; }
+
+@media (max-width: 768px) {
+  .location-wrap { flex-direction: column; }
+}

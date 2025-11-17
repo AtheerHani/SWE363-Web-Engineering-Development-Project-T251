@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start:phase4": "cd phase-4 && PORT=3000 npm start",
+    "start:phase4-bg": "cd phase-4 && PORT=3000 nohup npm start > phase4.log 2>&1 &"
+  },
   "dependencies": {
     "bootstrap": "^5.3.8",
     "chart.js": "^4.5.1",
