@@ -38,6 +38,13 @@ const UserDropdown = ({ onClose }) => {
         Wishlists
       </button>
 
+      <button
+        className="dropdown-item"
+        onClick={() => handleNavigation("/listedProperties")}
+      >
+        Listed Properties
+      </button>
+
       <div className="dropdown-divider"></div>
 
       <button
