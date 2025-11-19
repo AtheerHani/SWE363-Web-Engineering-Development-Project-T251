@@ -1,0 +1,28 @@
+.notifications-container {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.notifications-container h2 {
+    color: #0e305d;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.notifications-container .list-group-item.unread {
+    background-color: #f9fafc;
+    border-left: 4px solid #0e305d;
+}
+
+.notifications-container .list-group-item.read {
+    background-color: #fff;
+    opacity: 0.8;
+}
+
+.empty-state {
+    color: #777;
+    font-style: italic;
+}

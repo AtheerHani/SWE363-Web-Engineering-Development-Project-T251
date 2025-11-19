@@ -2,28 +2,36 @@ import React from "react";
 import PropertyCard from "../PropertyCard/PropertyCard";
 import "./AdminPropertyCard.css";
 
-const AdminPropertyCard = ({ property, onModify, onRemove }) => {
+const AdminPropertyCard = ({ property, onToggleApproval, onSuspend, onRemove }) => {
+    const { id, approved, suspended } = property;
+
     return (
         <div className="admin-property-card">
-            {/* Render the original PropertyCard but hide features */}
             <PropertyCard
                 property={property}
-                showRating
+                showRating={false}
+                showFeatures={false}
                 featured
-                showFeatures={false}   // 👈 pass a prop to hide features
             />
 
-            {/* Admin-only actions */}
             <div className="admin-actions">
                 <button
-                    className="modify-btn"
-                    onClick={() => onModify(property.id)}
+                    className={`approve-btn ${approved ? "disapprove" : "approve"}`}
+                    onClick={() => onToggleApproval(id)}
                 >
-                    Modify
+                    {approved ? "Disapprove" : "Approve"}
                 </button>
+
+                <button
+                    className="suspend-btn"
+                    onClick={() => onSuspend(id)}
+                >
+                    {suspended ? "Suspended" : "Suspend"}
+                </button>
+
                 <button
                     className="remove-btn"
-                    onClick={() => onRemove(property.id)}
+                    onClick={() => onRemove(id)}
                 >
                     Remove
                 </button>
@@ -33,3 +41,4 @@ const AdminPropertyCard = ({ property, onModify, onRemove }) => {
 };
 
 export default AdminPropertyCard;
+

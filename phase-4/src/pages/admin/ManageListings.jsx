@@ -1,33 +1,46 @@
 import React, { useState } from "react";
 import AdminPropertyCard from "../../components/AdminPropertyCard/AdminPropertyCard.jsx";
 import "./ManageListings.css";
+import villaImg from "./villa-cover.jpg";
 
 function ManageListings({ userId, onBack }) {
-    // Sample listings — later replace with API data
     const [listings, setListings] = useState([
         {
             id: 1,
             title: "Luxury Villa",
-            image: "/images/villa.jpg",
+            image: villaImg,
             pricePerDay: 500,
             pricePerHour: 50,
-            rating: 4,
             size: 120,
+            approved: false,
+            suspended: false,
         },
         {
             id: 2,
             title: "City Apartment",
-            image: "/images/apartment.jpg",
+            image: villaImg,
             pricePerDay: 300,
             pricePerHour: 30,
-            rating: 5,
             size: 80,
+            approved: true,
+            suspended: false,
         },
     ]);
 
-    const handleModify = (id) => {
-        console.log("Modify listing", id);
-        // TODO: open modal or navigate to edit form
+    const handleToggleApproval = (id) => {
+        setListings((prev) =>
+            prev.map((listing) =>
+                listing.id === id ? { ...listing, approved: !listing.approved } : listing
+            )
+        );
+    };
+
+    const handleSuspend = (id) => {
+        setListings((prev) =>
+            prev.map((listing) =>
+                listing.id === id ? { ...listing, suspended: !listing.suspended } : listing
+            )
+        );
     };
 
     const handleRemove = (id) => {
@@ -46,8 +59,10 @@ function ManageListings({ userId, onBack }) {
                         <AdminPropertyCard
                             key={listing.id}
                             property={listing}
-                            onModify={handleModify}
+                            onToggleApproval={handleToggleApproval}
+                            onSuspend={handleSuspend}
                             onRemove={handleRemove}
+                            showRating={false}
                         />
                     ))}
                 </div>
@@ -63,4 +78,5 @@ function ManageListings({ userId, onBack }) {
 }
 
 export default ManageListings;
+
 

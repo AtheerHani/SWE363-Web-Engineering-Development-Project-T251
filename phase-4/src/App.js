@@ -13,6 +13,7 @@ import Signup from "./signup/Signup";
 import Login from "./login/Login";
 import Profile from "./profile/Profile";
 import AdminProfile from "./pages/admin/AdminProfile";
+import Notifications from "./pages/notifications/Notifications.jsx";
 import Payment from "./pages/payment/Payment";
 import ListingDetails from "./pages/listing-details/ListingDetails";
 import Search from "./pages/search/search";
@@ -60,6 +61,7 @@ function AppContent() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/listing/:id" element={<ListingDetails />} />
           <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/notifications" element={<Notifications />} />
 
           {/* Space Creation - steps 1..8 */}
           <Route

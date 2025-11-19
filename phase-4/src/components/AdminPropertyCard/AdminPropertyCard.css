@@ -1,33 +1,55 @@
 .admin-actions {
     display: flex;
+    justify-content: center;
     gap: 10px;
     margin-top: 12px;
 }
 
-.modify-btn {
-    background-color: #0e305d;
-    color: #fff;
+.admin-actions button {
     border: none;
     border-radius: 6px;
     padding: 6px 12px;
-    cursor: pointer;
     font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.modify-btn:hover {
+/* Approve/Disapprove toggle */
+.approve-btn.approve {
+    background-color: #0e305d;
+    color: #fff;
+}
+.approve-btn.approve:hover {
     background-color: #072b52;
+    transform: translateY(-2px);
 }
 
+.approve-btn.disapprove {
+    background-color: #999;
+    color: #fff;
+}
+.approve-btn.disapprove:hover {
+    background-color: #777;
+    transform: translateY(-2px);
+}
+
+/* Suspend */
+.suspend-btn {
+    background-color: #f0ad4e;
+    color: #fff;
+}
+.suspend-btn:hover {
+    background-color: #d98c2f;
+    transform: translateY(-2px);
+}
+
+/* Remove */
 .remove-btn {
     background-color: #d9534f;
     color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 12px;
-    cursor: pointer;
-    font-weight: 600;
+}
+.remove-btn:hover {
+    background-color: #c63f3b;
+    transform: translateY(-2px);
 }
 
-.remove-btn:hover {
-    background-color: #b52b2b;
-}
