@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import FeaturesSection from "../../components/FeaturesSection/FeaturesSection";
@@ -7,6 +7,7 @@ import LogisticsCompanies from "../../components/LogisticsCompanies/LogisticsCom
 import ReviewsSection from "../../components/ReviewsSection/ReviewsSection";
 import PriceCard from "../../components/PriceCard/PriceCard";
 import "./ListingDetails.css";
+import { ReservationsContext } from "../../context/ReservationsContext";
 
 const ListingDetails = () => {
     const navigate = useNavigate();
@@ -108,8 +109,26 @@ const ListingDetails = () => {
         }
     };
 
+    const { addReservation } = useContext(ReservationsContext);
+
     const handleReserve = () => {
-        navigate("/payment");
+        const id = Date.now();
+        const priceVal = listingData.pricing?.perMonth || listingData.pricePerDay || 0;
+        const priceStr = `$ ${priceVal} USD`;
+        const reservation = {
+            id,
+            listingId: listingData.id,
+            title: listingData.title,
+            checkIn: new Date().toISOString(),
+            duration: "N/A",
+            price: priceStr,
+        };
+        try {
+            addReservation(reservation);
+        } catch (e) {
+            // ignore
+        }
+        navigate("/reservations");
     };
 
     const handleSpaceInquiry = () => {

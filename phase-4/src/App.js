@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 
 import { SpaceCreationProvider } from "./context/SpaceCreationContext";
 import { WishlistProvider } from "./context/WishlistContext";
+import { ReservationsProvider } from "./context/ReservationsContext";
 
 import Header from "./components/Header/Header";
 import HeaderLoggedIn from "./components/HeaderLoggedIn/HeaderLoggedIn";
@@ -28,6 +29,7 @@ import Step6 from "./pages/space-creation/step-6/Step6";
 import Step7 from "./pages/space-creation/step-7/Step7";
 import Step8 from "./pages/space-creation/step-8/Step8";
 import Wishlist from "./pages/Wishlist/Wishlist";
+import Reservations from "./pages/reservations/Reservations";
 
 import "./App.css";
 
@@ -128,6 +130,7 @@ function AppContent() {
               </SpaceCreationProvider>
             }
           />
+          <Route path="/reservations" element={<Reservations />} />
         </Routes>
       </main>
 
@@ -141,7 +144,9 @@ function App() {
   return (
     <Router>
       <WishlistProvider>
-        <AppContent />
+        <ReservationsProvider>
+          <AppContent />
+        </ReservationsProvider>
       </WishlistProvider>
     </Router>
   );

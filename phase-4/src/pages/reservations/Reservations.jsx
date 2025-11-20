@@ -1,30 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useMemo } from "react";
 import "./Reservations.css";
-
-const dummyUpcoming = [
-  {
-    id: 1,
-    title: "Fully Furnished Apartment",
-    checkIn: "12 Mar 2021",
-    duration: "Long (2 - 5 Years)",
-    price: "$ 1000 USD",
-  },
-  {
-    id: 2,
-    title: "Double Flat with 3 Rooms",
-    checkIn: "20 Apr 2021",
-    duration: "Long (2 - 5 Years)",
-    price: "$ 850 USD",
-  },
-];
+import { ReservationsContext } from "../../context/ReservationsContext";
 
 export default function Reservations() {
   const [activeTab, setActiveTab] = useState("upcoming");
+  const { reservations } = useContext(ReservationsContext);
 
-  const upcoming = dummyUpcoming;
-  const past = [];
+  // split upcoming vs past by checkIn date (ISO string expected)
+  const { upcoming, past } = useMemo(() => {
+    const now = new Date();
+    const up = [];
+    const pa = [];
+    (reservations || []).forEach((r) => {
+      const d = r.checkIn ? new Date(r.checkIn) : null;
+      if (!d) {
+        up.push(r);
+      } else if (d >= now) up.push(r);
+      else pa.push(r);
+    });
+    return { upcoming: up, past: pa };
+  }, [reservations]);
 
   const listToShow = activeTab === "upcoming" ? upcoming : past;
+
+  const formatDate = (iso) => {
+    try {
+      return new Date(iso).toLocaleDateString();
+    } catch (e) {
+      return iso || "";
+    }
+  };
 
   return (
     <div className="reservations-page-outer">
@@ -63,9 +68,9 @@ export default function Reservations() {
                 <div className="card-middle">
                   <div className="res-title">{r.title}</div>
                   <div className="res-details">
-                    <span>Check In: {r.checkIn}</span>
+                    <span>Check In: {formatDate(r.checkIn)}</span>
                     <span className="dot">•</span>
-                    <span>Duration: {r.duration}</span>
+                    <span>{r.duration || ""}</span>
                   </div>
                 </div>
 
