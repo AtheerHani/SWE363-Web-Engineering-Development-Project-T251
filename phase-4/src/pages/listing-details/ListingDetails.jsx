@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import FeaturesSection from "../../components/FeaturesSection/FeaturesSection";
@@ -7,7 +7,7 @@ import LogisticsCompanies from "../../components/LogisticsCompanies/LogisticsCom
 import ReviewsSection from "../../components/ReviewsSection/ReviewsSection";
 import PriceCard from "../../components/PriceCard/PriceCard";
 import "./ListingDetails.css";
-import { ReservationsContext } from "../../context/ReservationsContext";
+ 
 
 const ListingDetails = () => {
     const navigate = useNavigate();
