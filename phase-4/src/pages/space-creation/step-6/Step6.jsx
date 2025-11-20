@@ -21,8 +21,11 @@ const Step6 = () => {
 
   const validateStep = () => {
     const errors = {};
+    if (!location.region) errors.region = 'Please enter the region or province';
     if (!location.city) errors.city = 'Please enter the city';
+    if (!location.district) errors.district = 'Please enter the district or neighborhood';
     if (!location.street) errors.street = 'Please enter the street or building name';
+    if (!location.lat || !location.lng) errors.map = 'Please select the location on the map or enable location access';
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -102,6 +105,8 @@ const Step6 = () => {
                 onMapClick={handleMapClick}
               />
 
+              {validationErrors.map && <p className="error-message map-error">{validationErrors.map}</p>}
+
               {geocoding && (
                 <div className="geocode-loading">
                   <div className="spinner" aria-hidden="true"></div>
@@ -118,8 +123,9 @@ const Step6 = () => {
                     value={location.region}
                     onChange={handleLocationChange}
                     placeholder="e.g., Riyadh Province"
-                    className="location-input"
+                    className={`location-input ${validationErrors.region ? 'error' : ''}`}
                   />
+                  {validationErrors.region && <p className="error-message">{validationErrors.region}</p>}
                 </div>
 
                 <div className="address-field">
@@ -143,8 +149,9 @@ const Step6 = () => {
                     value={location.district}
                     onChange={handleLocationChange}
                     placeholder="e.g., Al Olaya"
-                    className="location-input"
+                    className={`location-input ${validationErrors.district ? 'error' : ''}`}
                   />
+                  {validationErrors.district && <p className="error-message">{validationErrors.district}</p>}
                 </div>
 
                 <div className="address-field">

@@ -539,3 +539,87 @@ src/components/LocationMap/LocationMap.jsx
   Line 73:8:  React Hook useEffect has a missing dependency: 'onMapClick'. Either include it or remove the dependency array. If 'onMapClick' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
 
 webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/LocationMap/LocationMap.jsx
+  Line 73:8:  React Hook useEffect has a missing dependency: 'onMapClick'. Either include it or remove the dependency array. If 'onMapClick' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/LocationMap/LocationMap.jsx
+  Line 73:8:  React Hook useEffect has a missing dependency: 'onMapClick'. Either include it or remove the dependency array. If 'onMapClick' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/LocationMap/LocationMap.jsx
+  Line 73:8:  React Hook useEffect has a missing dependency: 'onMapClick'. Either include it or remove the dependency array. If 'onMapClick' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/LocationMap/LocationMap.jsx
+  Line 73:8:  React Hook useEffect has a missing dependency: 'onMapClick'. Either include it or remove the dependency array. If 'onMapClick' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+Failed to compile.
+
+Module not found: Error: Can't resolve '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ReactRefreshEntry.js' in '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4'
+WARNING in [eslint] 
+src/components/LocationMap/LocationMap.jsx
+  Line 73:8:  React Hook useEffect has a missing dependency: 'onMapClick'. Either include it or remove the dependency array. If 'onMapClick' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+ERROR in Module not found: Error: Can't resolve '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ReactRefreshEntry.js' in '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4'
+
+ERROR in Module not found: Error: Can't resolve '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=0.0.0.0&port=3000&pathname=%2Fws&logging=none&overlay=%7B%22errors%22%3Atrue%2C%22warnings%22%3Afalse%7D&reconnect=10&hot=true&live-reload=true' in '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4'
+
+ERROR in Module not found: Error: Can't resolve '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/webpack/hot/dev-server.js' in '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4'
+
+ERROR in main
+Module not found: Error: Can't resolve '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/src/index.js' in '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4'
+
+ERROR in Error: Child compilation failed:
+Module not found: Error: Can't resolve '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/html-webpack-plugin/lib/loader.js' in '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4'
+ModuleNotFoundError: Module not found: Error: Can't resolve '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/html-webpack-plugin/lib/loader.js' in '/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4'
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/webpack/lib/Compilation.js:2029:28
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/webpack/lib/NormalModuleFactory.js:1031:13
+    at eval (eval at create (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:10:1)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/webpack/lib/NormalModuleFactory.js:432:22
+    at eval (eval at create (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:9:1)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/webpack/lib/NormalModuleFactory.js:617:22
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/webpack/lib/NormalModuleFactory.js:183:10
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/webpack/lib/NormalModuleFactory.js:849:23
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/webpack/lib/NormalModuleFactory.js:1341:5
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/neo-async/async.js:2830:7
+    at done (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/neo-async/async.js:2925:13)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/webpack/lib/NormalModuleFactory.js:1304:23
+    at finishWithoutResolve (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/Resolver.js:568:11)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/Resolver.js:657:14
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/Resolver.js:718:5
+    at eval (eval at create (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:16:1)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/Resolver.js:718:5
+    at eval (eval at create (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:16:1)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/Resolver.js:718:5
+    at eval (eval at create (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:15:1)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/Resolver.js:718:5
+    at eval (eval at create (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:15:1)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/Resolver.js:718:5
+    at eval (eval at create (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:16:1)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/Resolver.js:718:5
+    at eval (eval at create (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:16:1)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/Resolver.js:718:5
+    at eval (eval at create (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:16:1)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/Resolver.js:718:5
+    at eval (eval at create (/Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:15:1)
+    at /Users/atheerhani/Desktop/SWE363-Web-Engineering-Development-Project-T251/phase-4/node_modules/enhanced-resolve/lib/DirectoryExistsPlugin.js:43:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:88:21)
+
+1 ERROR in child compilations (Use 'stats.children: true' resp. '--stats-children' for more details)
+webpack compiled with 6 errors and 1 warning

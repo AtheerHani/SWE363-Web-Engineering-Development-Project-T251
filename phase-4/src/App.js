@@ -63,7 +63,7 @@ function AppContent() {
           <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/notifications" element={<Notifications />} />
 
-          {/* Space Creation - steps 1..8 */}
+          {/* Space Creation - steps 1..7 */}
           <Route
             path="/space-creation/step-1"
             element={
