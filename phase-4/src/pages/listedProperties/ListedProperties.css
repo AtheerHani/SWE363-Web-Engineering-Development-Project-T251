@@ -1,0 +1,37 @@
+.listed-properties-container {
+    padding: 24px;
+}
+
+.listed-properties-container h2 {
+    color: #0e305d;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.empty-state {
+    color: #777;
+    font-style: italic;
+}
+
+.back-btn-container {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.back-btn {
+    background-color: #0e305d;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-weight: 600;
+}
+.back-btn:hover {
+    background-color: #072b52;
+}

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import AdminPropertyCard from "../../components/AdminPropertyCard/AdminPropertyCard.jsx";
 import "./ManageListings.css";
-import villaImg from "./villa-cover.jpg";
+import roomImg from "./villa-cover.jpg";
+
 
 function ManageListings({ userId, onBack }) {
     const [listings, setListings] = useState([
         {
             id: 1,
             title: "Luxury Villa",
-            image: villaImg,
+            image: roomImg,
             pricePerDay: 500,
             pricePerHour: 50,
             size: 120,
@@ -18,7 +19,7 @@ function ManageListings({ userId, onBack }) {
         {
             id: 2,
             title: "City Apartment",
-            image: villaImg,
+            image: roomImg,
             pricePerDay: 300,
             pricePerHour: 30,
             size: 80,
