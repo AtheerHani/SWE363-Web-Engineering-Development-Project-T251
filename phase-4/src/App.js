@@ -19,7 +19,6 @@ import Payment from "./pages/payment/Payment";
 import ListingDetails from "./pages/listing-details/ListingDetails";
 import Search from "./pages/search/search";
 import Home from "./pages/home/Home";
-import HostProfile from "./hostProfile/HostProfile";
 import Step1 from "./pages/space-creation/step-1/Step1";
 import Step2 from "./pages/space-creation/step-2/Step2";
 import Step3 from "./pages/space-creation/step-3/Step3";
@@ -58,7 +57,6 @@ function AppContent() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/search" element={<Search />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/hostProfile" element={<HostProfile />} />
           <Route path="/admin/profile" element={<AdminProfile />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/listing/:id" element={<ListingDetails />} />
