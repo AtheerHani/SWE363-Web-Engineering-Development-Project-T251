@@ -161,39 +161,6 @@ const ListingDetails = () => {
                         <div className="listing-title-section">
                             <h1 className="listing-title">{listingData.title}</h1>
                                 <p className="listing-location">{listingData.location}</p>
-                                <div className="reservation-date-picker inline-under-location">
-                                    <label className="date-label">From</label>
-                                    <input
-                                        type="date"
-                                        value={fromDate}
-                                        onChange={(e) => {
-                                            setFromDate(e.target.value);
-                                            if (toDate && new Date(e.target.value) > new Date(toDate)) {
-                                                setDateError("Start date cannot be after end date.");
-                                            } else {
-                                                setDateError("");
-                                            }
-                                        }}
-                                        min={new Date().toISOString().slice(0,10)}
-                                    />
-
-                                    <label className="date-label">To</label>
-                                    <input
-                                        type="date"
-                                        value={toDate}
-                                        onChange={(e) => {
-                                            setToDate(e.target.value);
-                                            if (fromDate && new Date(e.target.value) < new Date(fromDate)) {
-                                                setDateError("End date cannot be before start date.");
-                                            } else {
-                                                setDateError("");
-                                            }
-                                        }}
-                                        min={fromDate || new Date().toISOString().slice(0,10)}
-                                    />
-
-                                    {dateError && <p className="date-error">{dateError}</p>}
-                                </div>
                         </div>
                         <div className="listing-actions">
                             <button
@@ -237,6 +204,41 @@ const ListingDetails = () => {
 
                     {/* Show Location */}
                     <LocationMap coordinates={listingData.coordinates} />
+
+                    {/* Reservation date picker moved here (under the map) */}
+                    <div className="reservation-date-picker under-map">
+                        <label className="date-label">From</label>
+                        <input
+                            type="date"
+                            value={fromDate}
+                            onChange={(e) => {
+                                setFromDate(e.target.value);
+                                if (toDate && new Date(e.target.value) > new Date(toDate)) {
+                                    setDateError("Start date cannot be after end date.");
+                                } else {
+                                    setDateError("");
+                                }
+                            }}
+                            min={new Date().toISOString().slice(0,10)}
+                        />
+
+                        <label className="date-label">To</label>
+                        <input
+                            type="date"
+                            value={toDate}
+                            onChange={(e) => {
+                                setToDate(e.target.value);
+                                if (fromDate && new Date(e.target.value) < new Date(fromDate)) {
+                                    setDateError("End date cannot be before start date.");
+                                } else {
+                                    setDateError("");
+                                }
+                            }}
+                            min={fromDate || new Date().toISOString().slice(0,10)}
+                        />
+
+                        {dateError && <p className="date-error">{dateError}</p>}
+                    </div>
 
                     {/* Logistics Companies */}
                     <LogisticsCompanies />
