@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ReservationsContext } from "../../context/ReservationsContext";
 import BookingSummaryCard from "../../components/BookingSummaryCard/BookingSummaryCard";
 import "./Payment.css";
 
@@ -67,6 +69,10 @@ const Payment = () => {
         }
     };
 
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { addReservation } = useContext(ReservationsContext);
+
     const handlePayment = (e) => {
         e.preventDefault();
 
@@ -84,7 +90,31 @@ const Payment = () => {
             transferReceipt: transferReceipt ? transferReceipt.name : null,
         });
 
+        // simulate successful payment
         alert("Payment submitted successfully!");
+
+        // create reservation from listing passed via location.state or fallback to bookingData
+        const listing = (location && location.state && location.state.listing) || bookingData;
+        const id = Date.now();
+        const priceVal = (listing.pricing && (listing.pricing.perMonth || listing.pricing.perDay)) || listing.pricePerDay || 0;
+        const priceStr = `$ ${priceVal} USD`;
+        const reservation = {
+            id,
+            listingId: listing.id || id,
+            title: listing.title || bookingData.title,
+            checkIn: new Date().toISOString(),
+            duration: "N/A",
+            price: priceStr,
+        };
+
+        try {
+            addReservation(reservation);
+        } catch (err) {
+            console.warn("Failed to add reservation to context", err);
+        }
+
+        // navigate to reservations page
+        navigate("/reservations");
     };
 
     return (

@@ -109,26 +109,9 @@ const ListingDetails = () => {
         }
     };
 
-    const { addReservation } = useContext(ReservationsContext);
-
     const handleReserve = () => {
-        const id = Date.now();
-        const priceVal = listingData.pricing?.perMonth || listingData.pricePerDay || 0;
-        const priceStr = `$ ${priceVal} USD`;
-        const reservation = {
-            id,
-            listingId: listingData.id,
-            title: listingData.title,
-            checkIn: new Date().toISOString(),
-            duration: "N/A",
-            price: priceStr,
-        };
-        try {
-            addReservation(reservation);
-        } catch (e) {
-            // ignore
-        }
-        navigate("/reservations");
+        // navigate to payment page; pass listing data so payment can create reservation after successful payment
+        navigate("/payment", { state: { listing: listingData } });
     };
 
     const handleSpaceInquiry = () => {
