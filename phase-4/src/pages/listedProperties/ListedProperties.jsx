@@ -46,7 +46,7 @@ function ListedProperties({ userId, onBack }) {
             )}
 
             <div className="back-btn-container">
-                <button className="back-btn" onClick={() => navigate(-1)}>
+                <button className="back-btn" onClick={() => onBack}>
                     Go Back
                 </button>
             </div>
