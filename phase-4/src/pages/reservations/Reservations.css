@@ -1,0 +1,155 @@
+.reservations-page-outer {
+  min-height: 100vh;
+  background: #f3f4f6; /* light gray outer bg */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.reservations-container {
+  /* Figma container size (max width) */
+  width: 100%;
+  max-width: 1366px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.reservations-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.reservations-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.reservations-tabs {
+  display: flex;
+  gap: 12px;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #6b7280; /* gray */
+}
+
+.tab.active {
+  color: #0f172a; /* dark */
+  border-bottom: 3px solid #0f172a;
+}
+
+.tabs-divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 18px;
+  margin-bottom: 24px;
+}
+
+.reservations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 20px;
+}
+
+.reservation-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.card-left {
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.image-placeholder {
+  width: 100px;
+  height: 100px;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.card-middle {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.res-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.res-details {
+  color: #6b7280;
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.res-details .dot {
+  margin: 0 8px;
+}
+
+.card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.res-price {
+  font-weight: 700;
+}
+
+.cancel-btn {
+  background: #9ca3af; /* light gray */
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.empty-state {
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reservations-container {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .reservation-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .card-right {
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
