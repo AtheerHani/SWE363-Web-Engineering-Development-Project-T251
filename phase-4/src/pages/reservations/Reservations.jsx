@@ -68,7 +68,13 @@ export default function Reservations() {
                 <div className="card-middle">
                   <div className="res-title">{r.title}</div>
                   <div className="res-details">
-                    <span>Check In: {formatDate(r.checkIn)}</span>
+                    {r.endDate ? (
+                      <span>
+                        {formatDate(r.checkIn)} — {formatDate(r.endDate)}
+                      </span>
+                    ) : (
+                      <span>Check In: {formatDate(r.checkIn)}</span>
+                    )}
                     <span className="dot">•</span>
                     <span>{r.duration || ""}</span>
                   </div>

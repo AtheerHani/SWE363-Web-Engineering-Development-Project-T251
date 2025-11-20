@@ -11,7 +11,7 @@ const Payment = () => {
     const [cvv, setCvv] = useState("");
     const [transferReceipt, setTransferReceipt] = useState(null);
     const [bankAccountInfo, setBankAccountInfo] = useState(null);
-    const [selectedDuration, setSelectedDuration] = useState("");
+    
 
     // Sample booking data - this will come from props/state management later
     const bookingData = {
@@ -77,8 +77,17 @@ const Payment = () => {
     const handlePayment = (e) => {
         e.preventDefault();
 
-        if (!selectedDuration) {
-            alert("Please select a duration for your reservation.");
+        // Require date range passed from listing page
+        const fromDate = location && location.state && location.state.fromDate;
+        const toDate = location && location.state && location.state.toDate;
+        if (!fromDate || !toDate) {
+            alert("Please select reservation dates on the listing page before proceeding to payment.");
+            return;
+        }
+        const from = new Date(fromDate);
+        const to = new Date(toDate);
+        if (to < from) {
+            alert("End date cannot be before start date.");
             return;
         }
 
@@ -108,8 +117,9 @@ const Payment = () => {
             id,
             listingId: listing.id || id,
             title: listing.title || bookingData.title,
-            checkIn: new Date().toISOString(),
-            duration: selectedDuration,
+            checkIn: location && location.state && location.state.fromDate ? location.state.fromDate : new Date().toISOString(),
+            endDate: location && location.state && location.state.toDate ? location.state.toDate : null,
+            duration: location && location.state && location.state.fromDate && location.state.toDate ? `${Math.round((new Date(location.state.toDate) - new Date(location.state.fromDate)) / (1000*60*60*24))} days` : "N/A",
             price: priceStr,
         };
 
@@ -301,18 +311,7 @@ const Payment = () => {
                         </div>
                     )}
 
-                    {/* Pay Button */}
-                    <div className="duration-section">
-                        <label htmlFor="duration-select" className="duration-label">Reservation Duration</label>
-                        <select id="duration-select" value={selectedDuration} onChange={(e) => setSelectedDuration(e.target.value)}>
-                            <option value="">Select duration</option>
-                            <option value="1 month">1 month</option>
-                            <option value="3 months">3 months</option>
-                            <option value="6 months">6 months</option>
-                            <option value="12 months">12 months</option>
-                        </select>
-                    </div>
-
+                    {/* Dates are selected on listing page; payment will use those dates */}
                     <button type="submit" className="pay-button">
                         Pay
                     </button>
