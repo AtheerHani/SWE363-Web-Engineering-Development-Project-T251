@@ -4,7 +4,7 @@
     font-family: 'Montserrat', sans-serif;
     padding: 20px 60px 40px;
     /* ensure content doesn't get overlapped by footer: leave space at bottom */
-    padding-bottom: 200px;
+    padding-bottom: 360px;
     position: relative;
     z-index: 1;
     max-width: 1400px;
