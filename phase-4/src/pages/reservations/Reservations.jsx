@@ -7,7 +7,6 @@ const dummyUpcoming = [
     title: "Fully Furnished Apartment",
     checkIn: "12 Mar 2021",
     duration: "Long (2 - 5 Years)",
-    guests: "4 Adults",
     price: "$ 1000 USD",
   },
   {
@@ -15,7 +14,6 @@ const dummyUpcoming = [
     title: "Double Flat with 3 Rooms",
     checkIn: "20 Apr 2021",
     duration: "Long (2 - 5 Years)",
-    guests: "3 Adults",
     price: "$ 850 USD",
   },
 ];
@@ -68,8 +66,6 @@ export default function Reservations() {
                     <span>Check In: {r.checkIn}</span>
                     <span className="dot">•</span>
                     <span>Duration: {r.duration}</span>
-                    <span className="dot">•</span>
-                    <span>Guests: {r.guests}</span>
                   </div>
                 </div>
 
