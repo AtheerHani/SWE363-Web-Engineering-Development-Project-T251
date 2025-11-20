@@ -73,6 +73,7 @@ const Payment = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { addReservation } = useContext(ReservationsContext);
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
 
     const handlePayment = (e) => {
         e.preventDefault();
@@ -120,6 +121,10 @@ const Payment = () => {
             checkIn: location && location.state && location.state.fromDate ? location.state.fromDate : new Date().toISOString(),
             endDate: location && location.state && location.state.toDate ? location.state.toDate : null,
             duration: location && location.state && location.state.fromDate && location.state.toDate ? `${Math.round((new Date(location.state.toDate) - new Date(location.state.fromDate)) / (1000*60*60*24))} days` : "N/A",
+            dates: {
+                from: location && location.state && location.state.fromDate ? location.state.fromDate : null,
+                to: location && location.state && location.state.toDate ? location.state.toDate : null,
+            },
             price: priceStr,
         };
 
@@ -129,8 +134,8 @@ const Payment = () => {
             console.warn("Failed to add reservation to context", err);
         }
 
-        // navigate to reservations page
-        navigate("/reservations");
+        // show success modal with two options instead of immediate navigation
+        setShowSuccessModal(true);
     };
 
     return (
@@ -322,6 +327,35 @@ const Payment = () => {
             <div className="booking-summary-section">
                 <BookingSummaryCard bookingData={bookingData} />
             </div>
+
+            {showSuccessModal && (
+                <div className="modal-overlay">
+                    <div className="modal">
+                        <h3>Reservation successful</h3>
+                        <p>Your reservation has been created successfully.</p>
+                        <div className="modal-actions">
+                            <button
+                                className="modal-button"
+                                onClick={() => {
+                                    setShowSuccessModal(false);
+                                    navigate("/home");
+                                }}
+                            >
+                                Go to Homepage
+                            </button>
+                            <button
+                                className="modal-button primary"
+                                onClick={() => {
+                                    setShowSuccessModal(false);
+                                    navigate("/reservations");
+                                }}
+                            >
+                                Go to Reservations
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -160,7 +160,40 @@ const ListingDetails = () => {
                     <div className="listing-header">
                         <div className="listing-title-section">
                             <h1 className="listing-title">{listingData.title}</h1>
-                            <p className="listing-location">{listingData.location}</p>
+                                <p className="listing-location">{listingData.location}</p>
+                                <div className="reservation-date-picker inline-under-location">
+                                    <label className="date-label">From</label>
+                                    <input
+                                        type="date"
+                                        value={fromDate}
+                                        onChange={(e) => {
+                                            setFromDate(e.target.value);
+                                            if (toDate && new Date(e.target.value) > new Date(toDate)) {
+                                                setDateError("Start date cannot be after end date.");
+                                            } else {
+                                                setDateError("");
+                                            }
+                                        }}
+                                        min={new Date().toISOString().slice(0,10)}
+                                    />
+
+                                    <label className="date-label">To</label>
+                                    <input
+                                        type="date"
+                                        value={toDate}
+                                        onChange={(e) => {
+                                            setToDate(e.target.value);
+                                            if (fromDate && new Date(e.target.value) < new Date(fromDate)) {
+                                                setDateError("End date cannot be before start date.");
+                                            } else {
+                                                setDateError("");
+                                            }
+                                        }}
+                                        min={fromDate || new Date().toISOString().slice(0,10)}
+                                    />
+
+                                    {dateError && <p className="date-error">{dateError}</p>}
+                                </div>
                         </div>
                         <div className="listing-actions">
                             <button
@@ -214,40 +247,6 @@ const ListingDetails = () => {
 
                 {/* Right Column - Price Card */}
                 <div className="listing-sidebar">
-                    <div className="reservation-date-picker">
-                        <label className="date-label">From</label>
-                        <input
-                            type="date"
-                            value={fromDate}
-                            onChange={(e) => {
-                                setFromDate(e.target.value);
-                                // ensure toDate min
-                                if (toDate && new Date(e.target.value) > new Date(toDate)) {
-                                    setDateError("Start date cannot be after end date.");
-                                } else {
-                                    setDateError("");
-                                }
-                            }}
-                            min={new Date().toISOString().slice(0,10)}
-                        />
-
-                        <label className="date-label">To</label>
-                        <input
-                            type="date"
-                            value={toDate}
-                            onChange={(e) => {
-                                setToDate(e.target.value);
-                                if (fromDate && new Date(e.target.value) < new Date(fromDate)) {
-                                    setDateError("End date cannot be before start date.");
-                                } else {
-                                    setDateError("");
-                                }
-                            }}
-                            min={fromDate || new Date().toISOString().slice(0,10)}
-                        />
-
-                        {dateError && <p className="date-error">{dateError}</p>}
-                    </div>
                     <PriceCard
                         pricing={listingData.pricing}
                         onReserve={handleReserve}
