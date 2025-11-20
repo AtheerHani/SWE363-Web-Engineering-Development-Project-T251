@@ -7,14 +7,10 @@ import LogisticsCompanies from "../../components/LogisticsCompanies/LogisticsCom
 import ReviewsSection from "../../components/ReviewsSection/ReviewsSection";
 import PriceCard from "../../components/PriceCard/PriceCard";
 import "./ListingDetails.css";
- 
 
 const ListingDetails = () => {
     const navigate = useNavigate();
     const [isFavorite, setIsFavorite] = useState(false);
-    const [fromDate, setFromDate] = useState("");
-    const [toDate, setToDate] = useState("");
-    const [dateError, setDateError] = useState("");
 
     // Sample listing data - will come from props/API later
     const listingData = {
@@ -113,20 +109,7 @@ const ListingDetails = () => {
     };
 
     const handleReserve = () => {
-        // Validate dates selected on this page
-        if (!fromDate || !toDate) {
-            setDateError("Please select reservation start and end dates.");
-            return;
-        }
-        const from = new Date(fromDate);
-        const to = new Date(toDate);
-        if (to < from) {
-            setDateError("End date cannot be before start date.");
-            return;
-        }
-        setDateError("");
-        // navigate to payment page; pass listing data and dates so payment can create reservation after successful payment
-        navigate("/payment", { state: { listing: listingData, fromDate, toDate } });
+        navigate("/payment");
     };
 
     const handleSpaceInquiry = () => {
@@ -160,7 +143,7 @@ const ListingDetails = () => {
                     <div className="listing-header">
                         <div className="listing-title-section">
                             <h1 className="listing-title">{listingData.title}</h1>
-                                <p className="listing-location">{listingData.location}</p>
+                            <p className="listing-location">{listingData.location}</p>
                         </div>
                         <div className="listing-actions">
                             <button
@@ -204,41 +187,6 @@ const ListingDetails = () => {
 
                     {/* Show Location */}
                     <LocationMap coordinates={listingData.coordinates} />
-
-                    {/* Reservation date picker moved here (under the map) */}
-                    <div className="reservation-date-picker under-map">
-                        <label className="date-label">From</label>
-                        <input
-                            type="date"
-                            value={fromDate}
-                            onChange={(e) => {
-                                setFromDate(e.target.value);
-                                if (toDate && new Date(e.target.value) > new Date(toDate)) {
-                                    setDateError("Start date cannot be after end date.");
-                                } else {
-                                    setDateError("");
-                                }
-                            }}
-                            min={new Date().toISOString().slice(0,10)}
-                        />
-
-                        <label className="date-label">To</label>
-                        <input
-                            type="date"
-                            value={toDate}
-                            onChange={(e) => {
-                                setToDate(e.target.value);
-                                if (fromDate && new Date(e.target.value) < new Date(fromDate)) {
-                                    setDateError("End date cannot be before start date.");
-                                } else {
-                                    setDateError("");
-                                }
-                            }}
-                            min={fromDate || new Date().toISOString().slice(0,10)}
-                        />
-
-                        {dateError && <p className="date-error">{dateError}</p>}
-                    </div>
 
                     {/* Logistics Companies */}
                     <LogisticsCompanies />

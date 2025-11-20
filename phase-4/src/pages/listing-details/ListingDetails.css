@@ -3,10 +3,6 @@
 .listing-details-page {
     font-family: 'Montserrat', sans-serif;
     padding: 20px 60px 40px;
-    /* ensure content doesn't get overlapped by footer: leave space at bottom */
-    padding-bottom: 360px;
-    position: relative;
-    z-index: 1;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -172,24 +168,6 @@
 .description-section {
     padding: 20px 0;
     border-bottom: 1px solid #e0e0e0;
-}
-
-.reservation-date-picker.under-map {
-    margin: 18px 0 8px 0;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.reservation-date-picker.under-map .date-label {
-    font-size: 14px;
-    color: #333;
-}
-
-.date-error {
-    color: #e63946;
-    font-size: 13px;
-    margin-left: 8px;
 }
 
 .description-text {

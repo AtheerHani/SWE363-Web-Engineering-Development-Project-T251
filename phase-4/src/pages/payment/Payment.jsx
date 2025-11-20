@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { ReservationsContext } from "../../context/ReservationsContext";
+import React, { useState, useEffect } from "react";
 import BookingSummaryCard from "../../components/BookingSummaryCard/BookingSummaryCard";
 import "./Payment.css";
 
@@ -11,7 +9,6 @@ const Payment = () => {
     const [cvv, setCvv] = useState("");
     const [transferReceipt, setTransferReceipt] = useState(null);
     const [bankAccountInfo, setBankAccountInfo] = useState(null);
-    
 
     // Sample booking data - this will come from props/state management later
     const bookingData = {
@@ -70,27 +67,8 @@ const Payment = () => {
         }
     };
 
-    const location = useLocation();
-    const navigate = useNavigate();
-    const { addReservation } = useContext(ReservationsContext);
-    const [showSuccessModal, setShowSuccessModal] = useState(false);
-
     const handlePayment = (e) => {
         e.preventDefault();
-
-        // Require date range passed from listing page
-        const fromDate = location && location.state && location.state.fromDate;
-        const toDate = location && location.state && location.state.toDate;
-        if (!fromDate || !toDate) {
-            alert("Please select reservation dates on the listing page before proceeding to payment.");
-            return;
-        }
-        const from = new Date(fromDate);
-        const to = new Date(toDate);
-        if (to < from) {
-            alert("End date cannot be before start date.");
-            return;
-        }
 
         if (selectedPayment === "bank" && !transferReceipt) {
             alert("Please upload your transfer receipt before proceeding.");
@@ -106,36 +84,7 @@ const Payment = () => {
             transferReceipt: transferReceipt ? transferReceipt.name : null,
         });
 
-        // simulate successful payment
         alert("Payment submitted successfully!");
-
-        // create reservation from listing passed via location.state or fallback to bookingData
-        const listing = (location && location.state && location.state.listing) || bookingData;
-        const id = Date.now();
-        const priceVal = (listing.pricing && (listing.pricing.perMonth || listing.pricing.perDay)) || listing.pricePerDay || 0;
-        const priceStr = `$ ${priceVal} USD`;
-        const reservation = {
-            id,
-            listingId: listing.id || id,
-            title: listing.title || bookingData.title,
-            checkIn: location && location.state && location.state.fromDate ? location.state.fromDate : new Date().toISOString(),
-            endDate: location && location.state && location.state.toDate ? location.state.toDate : null,
-            duration: location && location.state && location.state.fromDate && location.state.toDate ? `${Math.round((new Date(location.state.toDate) - new Date(location.state.fromDate)) / (1000*60*60*24))} days` : "N/A",
-            dates: {
-                from: location && location.state && location.state.fromDate ? location.state.fromDate : null,
-                to: location && location.state && location.state.toDate ? location.state.toDate : null,
-            },
-            price: priceStr,
-        };
-
-        try {
-            addReservation(reservation);
-        } catch (err) {
-            console.warn("Failed to add reservation to context", err);
-        }
-
-        // show success modal with two options instead of immediate navigation
-        setShowSuccessModal(true);
     };
 
     return (
@@ -316,7 +265,7 @@ const Payment = () => {
                         </div>
                     )}
 
-                    {/* Dates are selected on listing page; payment will use those dates */}
+                    {/* Pay Button */}
                     <button type="submit" className="pay-button">
                         Pay
                     </button>
@@ -327,35 +276,6 @@ const Payment = () => {
             <div className="booking-summary-section">
                 <BookingSummaryCard bookingData={bookingData} />
             </div>
-
-            {showSuccessModal && (
-                <div className="modal-overlay">
-                    <div className="modal">
-                        <h3>Reservation successful</h3>
-                        <p>Your reservation has been created successfully.</p>
-                        <div className="modal-actions">
-                            <button
-                                className="modal-button"
-                                onClick={() => {
-                                    setShowSuccessModal(false);
-                                    navigate("/home");
-                                }}
-                            >
-                                Go to Homepage
-                            </button>
-                            <button
-                                className="modal-button primary"
-                                onClick={() => {
-                                    setShowSuccessModal(false);
-                                    navigate("/reservations");
-                                }}
-                            >
-                                Go to Reservations
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 };
