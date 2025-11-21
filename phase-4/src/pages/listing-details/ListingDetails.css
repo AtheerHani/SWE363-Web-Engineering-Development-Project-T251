@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 .listing-details-page {
@@ -38,14 +39,19 @@
     display: flex;
     gap: 40px;
     margin-top: 30px;
+    position: relative; /* Add this */
 }
 
 .listing-main {
     flex: 1;
+    position: relative; /* Add this */
+    z-index: 1; /* Add this */
 }
 
 .listing-sidebar {
     flex: 0 0 400px;
+    position: relative; /* Add this */
+    z-index: 2; /* Add this */
 }
 
 /* Listing Header */
@@ -168,6 +174,8 @@
 .description-section {
     padding: 20px 0;
     border-bottom: 1px solid #e0e0e0;
+    position: relative; /* Add this */
+    z-index: 1; /* Add this */
 }
 
 .description-text {
@@ -176,6 +184,23 @@
     line-height: 1.6;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+}
+
+/* FIX FOR SECTIONS AFTER MAP */
+.location-map-section,
+.logistics-section,
+.reviews-section {
+    position: relative !important; /* Force relative positioning */
+    z-index: 1 !important; /* Ensure proper stacking */
+    clear: both; /* Clear any floats */
+    width: 100%; /* Full width */
+    margin-bottom: 40px; /* Space between sections */
+}
+
+/* Ensure all sections stay in flow */
+.listing-main > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* Responsive Design */
@@ -193,6 +218,7 @@
 @media (max-width: 768px) {
     .listing-details-page {
         padding: 15px 20px;
+        padding-bottom: 120px; /* More space on mobile */
     }
 
     .listing-header {

@@ -72,8 +72,18 @@ const LocationMap = ({ coordinates, onMapClick }) => {
         };
     }, [coordinates]);
 
+    // return (
+    //     <div className="location-section">
+    //         <div className="map-container">
+    //             <div ref={mapRef} className="leaflet-map"></div>
+    //         </div>
+    //     </div>
+    // );
     return (
         <div className="location-section">
+            {/* ⭐️ This is the new title */}
+            <h2 className="map-title">Location</h2>
+
             <div className="map-container">
                 <div ref={mapRef} className="leaflet-map"></div>
             </div>

@@ -1,6 +1,37 @@
-body {
-  background-color: aliceblue;
+/*body {*/
+/*  background-color: aliceblue;*/
+/*}*/
+/** {*/
+/*  font-family: "Montserrat", sans-serif !important;*/
+/*}*/
+/*.main-content {*/
+/*    flex: 1;               !* يخلي المحتوى هو اللي يدز الفوتر تحت *!*/
+/*    display: block;       */
+/*}*/
+/* Make the whole app a flex column so footer is always at the bottom */
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
-* {
-  font-family: "Montserrat", sans-serif !important;
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* This is the <main className="main-content"> in App.jsx */
+.main-content {
+    flex: 1 0 auto;
+    height: auto !important;
+    overflow: visible !important;
+    min-height: calc(100vh - 100px);
+}
+
+/* Make sure the footer is normal flow, not fixed/absolute from elsewhere */
+footer,
+.footer {
+    position: static !important;
+    flex-shrink: 0;
 }

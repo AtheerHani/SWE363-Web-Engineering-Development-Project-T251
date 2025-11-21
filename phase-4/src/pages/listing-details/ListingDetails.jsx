@@ -169,7 +169,7 @@ const ListingDetails = () => {
                             <span className="host-label">Listed By:</span>
                             <span className="host-name">{listingData.listedBy}</span>
                             <span className="host-price">
-                                Per: 
+                                Per:
                                 <img src="/assets/icons/riyal.svg" alt="SAR" className="riyal-icon-tiny" />
                                 1 per day
                             </span>
@@ -185,14 +185,17 @@ const ListingDetails = () => {
                         <p className="description-text">{listingData.description}</p>
                     </div>
 
-                    {/* Show Location */}
-                    <LocationMap coordinates={listingData.coordinates} />
-
                     {/* Logistics Companies */}
                     <LogisticsCompanies />
 
                     {/* Reviews */}
                     <ReviewsSection reviews={listingData.reviews} />
+                    {/* Show Location */}
+                    <LocationMap coordinates={listingData.coordinates} />
+
+
+
+
                 </div>
 
                 {/* Right Column - Price Card */}

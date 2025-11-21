@@ -87,7 +87,10 @@ const ReviewsSection = ({ reviews }) => {
                     </div>
                 ))}
             </div>
+            <hr className="section-divider" />
+
         </div>
+
     );
 };
 
