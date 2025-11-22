@@ -118,6 +118,70 @@
   font-weight: 700;
 }
 
+.res-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.res-price .riyal-icon-small {
+  width: 14px;
+  height: 14px;
+}
+
+/* Confirm modal styles */
+.confirm-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.confirm-modal {
+  background: #fff;
+  padding: 20px 22px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.2);
+}
+
+.confirm-modal h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.confirm-modal p {
+  margin: 0 0 16px 0;
+  color: #374151;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #d1d5db;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 .cancel-btn {
   background: #9ca3af; /* light gray */
   color: #ffffff;

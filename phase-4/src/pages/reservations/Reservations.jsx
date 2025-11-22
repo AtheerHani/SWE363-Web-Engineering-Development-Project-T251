@@ -4,27 +4,47 @@ import "./Reservations.css";
 const dummyUpcoming = [
   {
     id: 1,
-    title: "Fully Furnished Apartment",
-    checkIn: "12 Mar 2021",
-    duration: "Long (2 - 5 Years)",
-    price: "$ 1000 USD",
+    title: "Basement",
+    checkIn: "22 Nov 2025",
+    duration: "1 Year",
+    price: "1000",
   },
   {
     id: 2,
-    title: "Double Flat with 3 Rooms",
-    checkIn: "20 Apr 2021",
-    duration: "Long (2 - 5 Years)",
-    price: "$ 850 USD",
+    title: "Small room",
+    checkIn: "22 Nov 2025",
+    duration: "3 Months",
+    price: "200",
   },
 ];
 
 export default function Reservations() {
   const [activeTab, setActiveTab] = useState("upcoming");
 
-  const upcoming = dummyUpcoming;
+  const [upcoming, setUpcoming] = useState(dummyUpcoming);
   const past = [];
 
   const listToShow = activeTab === "upcoming" ? upcoming : past;
+
+  // modal state for confirmation
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [toCancelId, setToCancelId] = useState(null);
+
+  const openConfirm = (id) => {
+    setToCancelId(id);
+    setConfirmOpen(true);
+  };
+
+  const closeConfirm = () => {
+    setToCancelId(null);
+    setConfirmOpen(false);
+  };
+
+  const handleConfirmCancel = () => {
+    if (toCancelId == null) return;
+    setUpcoming((prev) => prev.filter((r) => r.id !== toCancelId));
+    closeConfirm();
+  };
 
   return (
     <div className="reservations-page-outer">
@@ -70,13 +90,39 @@ export default function Reservations() {
                 </div>
 
                 <div className="card-right">
-                  <div className="res-price">{r.price}</div>
-                  <button className="cancel-btn">Cancel Reservation</button>
+                  <div className="res-price">
+                    <img
+                      src="/assets/icons/riyal.svg"
+                      alt="SAR"
+                      className="riyal-icon-small"
+                    />
+                    {r.price}
+                  </div>
+                  <button className="cancel-btn" onClick={() => openConfirm(r.id)}>
+                    Cancel Reservation
+                  </button>
                 </div>
               </div>
             ))
           )}
         </section>
+
+        {confirmOpen && (
+          <div className="confirm-modal-overlay">
+            <div className="confirm-modal" role="dialog" aria-modal="true">
+              <h3>Cancel Reservation</h3>
+              <p>Are you sure you want to cancel this reservation?</p>
+              <div className="confirm-actions">
+                <button className="btn-secondary" onClick={closeConfirm}>
+                  Keep Reservation
+                </button>
+                <button className="btn-danger" onClick={handleConfirmCancel}>
+                  Yes, Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
