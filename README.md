@@ -53,17 +53,17 @@ npm run build
 Usage Instructions & Examples
 -----------------------------
 - Open the dev server at: http://localhost:3000
-- Navigate to `/reservations` to see the reservations page. Currently the page uses hardcoded dummy data until we create the backend API.
-- Cancel a reservation using the "Cancel Reservation" button; a confirmation modal will appear.
+- Currently the page uses hardcoded dummy data until we create the backend API.
 
 Team
 ----
-- Atheer Hani — Frontend Developer / Project Owner
-- (Add other team members and roles here)
+- Atheer Hani 
+- Farah Hammad
+- Dana Alyahya
+- Dena Alharbi
 
 Environment Variables & API
 --------------------------
-Do not hard-code secrets or API keys. Use environment variables. Example environment variables expected by the front-end:
 
 - `REACT_APP_API_URL` — Base URL for backend API (e.g. `https://api.example.com`)
 - `REACT_APP_GOOGLE_MAPS_KEY` — (if used) Google Maps API key for map components
@@ -90,4 +90,4 @@ Where to find things
 
 Contact / Support
 -----------------
-If you need help running the project or want to contribute, open an issue or contact the project owner.
+If you need help running the project or want to contribute, contact one of our team members mentioned above.
