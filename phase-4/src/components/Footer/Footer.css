@@ -5,6 +5,9 @@
     padding: 60px 80px 30px;
 
     font-family: 'Montserrat', sans-serif;
+    /* create a baseline stacking context so content can be raised above if needed */
+    position: relative;
+    z-index: 1;
 }
 
 .footer-main {

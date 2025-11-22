@@ -6,6 +6,8 @@
     padding: 25px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     position: relative;
+    /* keep the sidebar card above the footer when the page is short */
+    z-index: 3;
 }
 
 .price-header {
