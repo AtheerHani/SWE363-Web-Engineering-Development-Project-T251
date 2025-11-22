@@ -1,2 +1,89 @@
-# SWE363-Web-Engineering-Development-Project-T251
-This repository has everything related to the website حُجرة including the website itself
+# حُجرة (Hujrah) — SWE363 Web Engineering Project (T251)
+
+Project title: حُجرة (Hujrah) — Storage Unit / Space Booking Platform
+
+Description
+-----------
+This repository contains the front-end code for `حُجرة`, a web application for browsing and reserving storage spaces (rooms, basements, small units). The project is implemented with React and is structured so the `phase-4` folder contains the main front-end application.
+
+Setup & Installation
+--------------------
+Prerequisites:
+- Node.js (v16 or later recommended)
+- npm (or yarn)
+
+Clone the repository and install dependencies:
+
+```bash
+git clone <your-repo-url>
+cd SWE363-Web-Engineering-Development-Project-T251
+# install root-level tooling if needed (optional)
+npm install
+
+# install dependencies for the front-end (phase-4)
+cd phase-4
+npm install
+```
+
+Run the development server:
+
+```bash
+# from repo root (uses phase-4 start script)
+npm run start:phase4
+
+# or run in background (root script provided)
+npm run start:phase4-bg
+
+# or directly inside phase-4
+cd phase-4
+npm start
+```
+
+Build for production:
+
+```bash
+cd phase-4
+npm run build
+```
+
+Usage Instructions & Examples
+-----------------------------
+- Open the dev server at: http://localhost:3000
+- Navigate to `/reservations` to see the reservations page. Currently the page uses hardcoded dummy data until the backend API is available.
+- Cancel a reservation using the "Cancel Reservation" button; a confirmation modal will appear.
+
+Team
+----
+- Atheer Hani — Frontend Developer / Project Owner
+- (Add other team members and roles here)
+
+Environment Variables & API
+--------------------------
+Do not hard-code secrets or API keys. Use environment variables. Example environment variables expected by the front-end:
+
+- `REACT_APP_API_URL` — Base URL for backend API (e.g. `https://api.example.com`)
+- `REACT_APP_GOOGLE_MAPS_KEY` — (if used) Google Maps API key for map components
+
+Place these in a local `.env` file at the `phase-4` folder (do NOT commit `.env`):
+
+```
+REACT_APP_API_URL=https://api.example.com
+REACT_APP_GOOGLE_MAPS_KEY=your_key_here
+```
+
+Best Practices
+--------------
+- Keep sensitive data out of the repository (never commit `.env` or API keys).
+- Use the provided `.gitignore` to exclude `node_modules`, `build/`, IDE files, logs, and environment files.
+- Make small, focused commits and keep descriptive commit messages.
+- When the backend API is ready, update the front-end to fetch real reservation data instead of the current hardcoded values.
+
+Where to find things
+--------------------
+- `phase-4/src/` — main React source code, components, and pages
+- `phase-4/public/` — static assets and `index.html`
+- `phase-4/package.json` — front-end scripts and dependencies
+
+Contact / Support
+-----------------
+If you need help running the project or want to contribute, open an issue or contact the project owner.
